@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, Palette, Eye, Target } from 'lucide-react';
 import Section from '../../components/Section';
 import Button from '../../components/Button';
@@ -70,12 +71,12 @@ export default function GraphicDesign() {
               <Button href="/contact" variant="primary" size="lg" className="text-lg px-10 py-5">
                 Get Started
               </Button>
-              <a
-                href="/services"
+              <Link
+                to="/services"
                 className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
               >
                 View All Services
-              </a>
+              </Link>
             </div>
           </div>
         </div>
