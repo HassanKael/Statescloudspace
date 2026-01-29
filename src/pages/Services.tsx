@@ -1,268 +1,193 @@
-import {
-  Palette,
-  Users,
-  Zap,
-  MessageSquare,
-  Target,
-  CheckCircle,
-} from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
 import Section from '../components/Section';
 import Button from '../components/Button';
 import Card from '../components/Card';
 
 export default function Services() {
-  const services = [
+  const [socialMediaSlide, setSocialMediaSlide] = useState(0);
+
+  const socialMediaImages = [
     {
-      id: 'design',
-      icon: Palette,
-      title: 'Graphic Design',
-      description:
-        'We create visuals that stop the scroll and move people to act. Every design is matched to your brand and your goals.',
-      deliverables: [
-        'Social media posts and carousels',
-        'Ad creatives (static and simple motion)',
-        'Web and campaign banners',
-        'Logos and brand identity',
-        'Brand kits (colors, fonts, templates)',
-      ],
-      outcomes: [
-        'Consistent brand look across all platforms',
-        'Higher engagement and click-through on posts and ads',
-      ],
+      title: 'Facebook Ads Manager',
+      image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
-      id: 'leads',
-      icon: Users,
-      title: 'Lead Generation & Funnels',
-      description:
-        'We set up the pages and campaigns that turn strangers into interested leads.',
-      deliverables: [
-        'Landing pages (for offers, webinars, lead magnets)',
-        'Lead capture forms and email capture',
-        'Sales funnels (ad → landing page → email follow-up)',
-        'CRM integration and basic pipeline setup',
-      ],
-      outcomes: [
-        'More qualified leads for your sales team',
-        'Predictable flow of new inquiries each month',
-      ],
+      title: 'LinkedIn Campaign Manager',
+      image: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
-      id: 'automation',
-      icon: Zap,
-      title: 'AI Automation & Chatbots',
-      description:
-        "Automate follow-up, FAQs, and first contact so you never lose leads when you're offline.",
-      deliverables: [
-        'Website and WhatsApp chatbots',
-        'Automated email sequences (welcome, nurture, abandoned cart, reactivation)',
-        'Automated SMS flows (reminders, confirmations, promotions)',
-        'AI workflows for lead routing and support',
-      ],
-      outcomes: [
-        'Faster response times and higher conversion from lead to customer',
-        'Less manual work for your team',
-      ],
+      title: 'Instagram Insights',
+      image: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
-      id: 'social',
-      icon: MessageSquare,
-      title: 'Social Media Management',
-      description:
-        'We manage your social presence so you stay top of mind with your audience.',
-      deliverables: [
-        'Content strategy and monthly content calendar',
-        'Post creation (graphics + captions)',
-        'Scheduling and posting',
-        'Community management (replying to comments/messages as agreed)',
-        'Monthly performance reports',
-      ],
-      outcomes: [
-        'Consistent, professional presence across platforms',
-        'Growth in followers, engagement, and brand awareness',
-      ],
-    },
-    {
-      id: 'ads',
-      icon: Target,
-      title: 'Paid Ads Management (Meta & Google)',
-      description:
-        'We run performance-focused ads on Facebook, Instagram, and Google to drive leads and sales.',
-      deliverables: [
-        'Campaign and audience strategy',
-        'Ad setup on Facebook, Instagram, and/or Google',
-        'Ongoing optimization (creatives, targeting, budgets)',
-        'Conversion tracking setup',
-        'Weekly/Monthly reports with insights',
-      ],
-      outcomes: [
-        'Higher ROI on ad spend',
-        'Clarity on what campaigns bring real revenue',
-      ],
+      title: 'Twitter Analytics',
+      image: 'https://images.pexels.com/photos/267401/pexels-photo-267401.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   ];
 
-  const packages = [
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSocialMediaSlide((prev) => (prev + 1) % socialMediaImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const services = [
     {
-      name: 'Starter',
-      description: 'Perfect for businesses just starting their digital marketing journey',
-      features: [
-        '1-2 services included',
-        'Basic automation setup',
-        'Monthly reporting',
-        'Email support',
-      ],
+      id: 'graphic-design',
+      name: 'Graphic Design',
+      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
+      summary:
+        'Transform your brand identity with stunning visuals that capture attention and drive engagement. We create compelling designs from logos to full brand kits that resonate with your B2B audience and establish credibility in your market.',
+      path: '/services/graphic-design',
     },
     {
-      name: 'Growth',
-      description: 'Ideal for businesses ready to scale their online presence',
-      features: [
-        '3-4 services included',
-        'Advanced automation and funnels',
-        'Weekly performance reports',
-        'Priority support',
-        'Quarterly strategy sessions',
-      ],
-      popular: true,
+      id: 'seo',
+      name: 'SEO',
+      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
+      summary:
+        'Dominate search rankings and attract high-intent buyers to your website. Our data-driven SEO strategies focus on keywords that convert, technical optimization, and content that positions you as an industry leader.',
+      path: '/services/seo',
     },
     {
-      name: 'Scale',
-      description: 'For established businesses seeking maximum growth',
-      features: [
-        'All services included',
-        'Full automation suite',
-        'Real-time reporting dashboard',
-        'Dedicated account manager',
-        'Monthly strategy sessions',
-        'Custom integrations',
-      ],
+      id: 'paid-ads',
+      name: 'Paid Ads',
+      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
+      summary:
+        'Launch high-performing campaigns on Google and Meta that deliver measurable ROI. We optimize every dollar spent with precision targeting, compelling ad creatives, and continuous performance monitoring to maximize conversions.',
+      path: '/services/paid-ads',
+    },
+    {
+      id: 'social-media',
+      name: 'Social Media Management',
+      images: socialMediaImages,
+      summary:
+        'Build and nurture your brand presence across all major social platforms. From content strategy to community management, we create engaging campaigns that keep your audience connected and drive consistent business results.',
+      path: '/services/social-media-management',
+      carousel: true,
+    },
+    {
+      id: 'ai-automation',
+      name: 'AI Automation',
+      image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+      summary:
+        'Streamline your marketing operations with cutting-edge AI solutions. Automate lead nurturing, customer support, and campaign optimization to save time, reduce costs, and scale your marketing efforts efficiently.',
+      path: '/services/ai-automation',
+    },
+    {
+      id: 'content-marketing',
+      name: 'Content Marketing',
+      image: 'https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=800',
+      summary:
+        'Establish thought leadership with strategic content that educates and converts. From blog posts to video series, we develop comprehensive content strategies that attract, engage, and nurture prospects through your sales funnel.',
+      path: '/services/content-marketing',
     },
   ];
 
   return (
     <>
-      <Section background="primary" padding="xl">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Services That Drive Sales</h1>
-          <p className="text-lg text-neutral-100">
+      <section className="relative w-full py-24 md:py-32 bg-gradient-to-br from-[#1A3263] to-[#0f1f40] overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 border border-white/20 rounded-full"></div>
+          <div className="absolute top-20 right-20 w-64 h-64 border border-white/20 rounded-full"></div>
+          <div className="absolute bottom-0 left-1/3 w-80 h-80 border border-white/20 rounded-full"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white mb-6 leading-[1.1]">
+            Services That Drive Sales
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
             Each service is built around business growth, not vanity metrics. We focus on
             what actually moves the needle: leads, conversions, and revenue.
           </p>
         </div>
-      </Section>
+      </section>
 
       <Section background="white" padding="xl">
-        <div className="space-y-20">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              id={service.id}
-              className={`grid lg:grid-cols-2 gap-12 items-start ${
-                index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-              }`}
-            >
-              <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                <div className="inline-block bg-secondary/10 rounded-full p-4 mb-6">
-                  <service.icon className="h-12 w-12 text-secondary" />
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">{service.title}</h2>
-                <p className="text-lg text-neutral-700 mb-6">{service.description}</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {services.map((service) => (
+            <Card key={service.id} padding="none" hover className="overflow-hidden group">
+              <div className="relative h-[300px] overflow-hidden">
+                {service.carousel && service.images ? (
+                  <>
+                    {service.images.map((img, index) => (
+                      <div
+                        key={index}
+                        className={`absolute inset-0 transition-opacity duration-700 ${
+                          index === socialMediaSlide ? 'opacity-100' : 'opacity-0'
+                        }`}
+                      >
+                        <img
+                          src={img.image}
+                          alt={img.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                    ))}
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                      {service.images.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            index === socialMediaSlide
+                              ? 'w-8 bg-white'
+                              : 'w-1.5 bg-white/50'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                )}
               </div>
 
-              <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
-                <Card padding="lg">
-                  <h3 className="text-xl font-semibold mb-4 text-primary">Deliverables</h3>
-                  <ul className="space-y-3 mb-6">
-                    {service.deliverables.map((item) => (
-                      <li key={item} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-neutral-700">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div className="p-6">
+                <a
+                  href={service.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mb-4 group/link"
+                >
+                  <h2 className="text-2xl font-bold text-black group-hover/link:text-[#1A3263] group-hover/link:underline transition-all duration-300">
+                    {service.name}
+                  </h2>
+                </a>
 
-                  <h3 className="text-xl font-semibold mb-4 text-primary">Outcomes</h3>
-                  <ul className="space-y-3">
-                    {service.outcomes.map((item) => (
-                      <li key={item} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-neutral-700 font-medium">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  {service.summary}
+                </p>
+
+                <a
+                  href={service.path}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full px-6 py-3 bg-[#1A3263] text-white font-semibold rounded-lg hover:bg-white hover:text-black border-2 border-transparent hover:border-[#1A3263] transition-all duration-300 group/btn"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </a>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </Section>
 
       <Section background="gray" padding="xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Flexible Packages</h2>
-          <p className="text-lg text-neutral-700 max-w-2xl mx-auto">
-            Every business is different. We create custom packages based on your goals and
-            budget.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {packages.map((pkg) => (
-            <Card
-              key={pkg.name}
-              padding="lg"
-              className={`relative ${
-                pkg.popular ? 'ring-2 ring-secondary shadow-xl' : ''
-              }`}
-            >
-              {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-secondary text-white px-4 py-1 rounded-full text-sm font-semibold">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-              <h3 className="text-2xl font-bold mb-3 text-primary">{pkg.name}</h3>
-              <p className="text-neutral-700 mb-6">{pkg.description}</p>
-              <ul className="space-y-3 mb-8">
-                {pkg.features.map((feature) => (
-                  <li key={feature} className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-neutral-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                href="/contact"
-                variant={pkg.popular ? 'accent' : 'outline'}
-                size="lg"
-                fullWidth
-              >
-                Get Started
-              </Button>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <p className="text-lg text-neutral-700 mb-6">
-            Not sure which package fits? We'll help you choose the right mix of services.
-          </p>
-          <Button href="/contact" variant="accent" size="lg">
-            Request a Custom Proposal
-          </Button>
-        </div>
-      </Section>
-
-      <Section background="white" padding="xl">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
             Ready to Transform Your Marketing?
           </h2>
-          <p className="text-lg text-neutral-700 mb-8">
-            Tell us what you want to achieve and we'll map out the best package for you.
+          <p className="text-xl text-gray-700 mb-10 leading-relaxed">
+            Tell us what you want to achieve and we'll map out the best strategy for your business.
           </p>
-          <Button href="/contact" variant="accent" size="lg">
+          <Button href="/contact" variant="primary" size="lg" className="text-lg px-10 py-5">
             Let's Talk About Your Goals
           </Button>
         </div>
