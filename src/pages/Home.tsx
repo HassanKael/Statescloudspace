@@ -253,7 +253,7 @@ export default function Home() {
               <div className="bg-primary/5 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-300">
                 <service.icon className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-black mb-3 not-italic">{service.title}</h3>
+              <h3 className="text-xl font-bold text-black mb-3">{service.title}</h3>
               <p className="mb-6 text-gray-600">{service.description}</p>
               <Link
                 to={service.link}
