@@ -17,9 +17,9 @@ export default function Section({
 }: SectionProps) {
   const backgroundStyles = {
     white: 'bg-white',
-    gray: 'bg-neutral-50',
+    gray: 'bg-gray-50',
     primary: 'bg-primary text-white',
-    dark: 'bg-neutral-900 text-white',
+    dark: 'bg-black text-white',
   };
 
   const paddingStyles = {

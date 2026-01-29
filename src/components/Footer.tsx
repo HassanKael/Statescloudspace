@@ -29,11 +29,11 @@ export default function Footer() {
                 alt="Statescloudspace"
                 className="h-10 w-auto brightness-0 invert"
               />
-              <span className="font-heading font-bold text-xl">
+              <span className="font-bold text-xl">
                 Statescloudspace
               </span>
             </div>
-            <p className="text-neutral-100 mb-4 max-w-md">
+            <p className="text-white mb-4 max-w-md">
               Statescloudspace is a digital marketing partner helping businesses design,
               automate, and scale their online growth.
             </p>
@@ -42,7 +42,7 @@ export default function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-neutral-100 hover:text-secondary transition-colors"
+                  className="text-white hover:text-white/80 transition-colors duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.name}
@@ -54,13 +54,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {navigation.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-neutral-100 hover:text-secondary transition-colors"
+                    className="text-white hover:text-white/80 transition-colors duration-300"
                   >
                     {item.name}
                   </Link>
@@ -70,15 +70,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Contact</h3>
-            <ul className="space-y-2 text-neutral-100">
+            <h3 className="font-semibold text-lg mb-4">Contact</h3>
+            <ul className="space-y-2 text-white">
               <li>
-                <a href="mailto:info@statescloudspace.com" className="hover:text-secondary transition-colors">
+                <a href="mailto:info@statescloudspace.com" className="hover:text-white/80 transition-colors duration-300">
                   info@statescloudspace.com
                 </a>
               </li>
               <li>
-                <a href="tel:+254700000000" className="hover:text-secondary transition-colors">
+                <a href="tel:+254700000000" className="hover:text-white/80 transition-colors duration-300">
                   +254 700 000 000
                 </a>
               </li>
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 text-center text-neutral-100 text-sm">
+        <div className="border-t border-white/20 pt-8 text-center text-white text-sm">
           <p>&copy; {new Date().getFullYear()} Statescloudspace. All rights reserved.</p>
         </div>
       </div>

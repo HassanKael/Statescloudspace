@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0B1F3B',
-          dark: '#081629',
+          DEFAULT: '#1A3263',
+          dark: '#132749',
         },
         secondary: {
           DEFAULT: '#1CC2B8',
@@ -18,16 +18,12 @@ export default {
           light: '#FFA366',
           dark: '#E67528',
         },
-        neutral: {
-          50: '#F5F7FA',
-          100: '#E1E5EC',
-          700: '#3C4350',
-          900: '#1A1D23',
-        },
       },
       fontFamily: {
-        sans: ['Inter', 'Open Sans', 'system-ui', 'sans-serif'],
-        heading: ['Poppins', 'Montserrat', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Roboto', 'system-ui', 'sans-serif'],
+      },
+      transitionDuration: {
+        '300': '300ms',
       },
     },
   },
