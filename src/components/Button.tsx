@@ -20,13 +20,13 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-heading font-semibold rounded-lg transition-all duration-200 inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseStyles = 'font-bold rounded-lg transition-all duration-300 ease-in-out inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md hover:shadow-lg';
 
   const variantStyles = {
-    primary: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary shadow-md hover:shadow-lg',
-    secondary: 'bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary shadow-md hover:shadow-lg',
-    outline: 'border-2 border-secondary text-secondary hover:bg-secondary hover:text-white focus:ring-secondary',
-    accent: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent shadow-md hover:shadow-lg',
+    primary: 'bg-primary text-white hover:bg-white hover:text-black border-2 border-primary focus:ring-primary',
+    secondary: 'bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary',
+    outline: 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary',
+    accent: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent',
   };
 
   const sizeStyles = {
