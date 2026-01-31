@@ -10,6 +10,8 @@ import {
   CheckCircle,
   ArrowRight,
   MessageCircle,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import Section from '../components/Section';
 import Button from '../components/Button';
@@ -19,6 +21,8 @@ import { supabase, BlogPost } from '../lib/supabase';
 export default function Home() {
   const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [successStorySlide, setSuccessStorySlide] = useState(0);
+  const [expandedStory, setExpandedStory] = useState<number | null>(null);
 
   useEffect(() => {
     fetchLatestPosts();
@@ -28,6 +32,13 @@ export default function Home() {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 4);
     }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSuccessStorySlide((prev) => (prev + 1) % 4);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -358,57 +369,196 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section background="gray" padding="xl">
-        <div className="text-center mb-16">
-          <h2 className="mb-4">What Clients Say</h2>
-          <p className="text-lg max-w-2xl mx-auto mt-4 text-gray-600">
-            Real results from real businesses.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            {
-              quote:
-                'Statescloudspace helped us turn social media from a cost into a profit channel.',
-              author: 'Sarah M.',
-              business: 'E-commerce Business',
-            },
-            {
-              quote:
-                'Their automation saved us 15+ hours a week and doubled our lead conversion rate.',
-              author: 'James K.',
-              business: 'B2B SaaS Startup',
-            },
-            {
-              quote:
-                'Finally, a marketing partner that focuses on sales, not just vanity metrics.',
-              author: 'Linda W.',
-              business: 'Local Service Business',
-            },
-          ].map((testimonial, index) => (
-            <Card key={index} padding="lg" className="bg-white border-l-4 border-primary">
-              <div className="mb-6">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-primary text-xl">★</span>
-                  ))}
-                </div>
-              </div>
-              <p className="mb-6 text-gray-700 leading-relaxed text-lg">"{testimonial.quote}"</p>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-bold text-lg">{testimonial.author[0]}</span>
-                </div>
-                <div>
-                  <p className="font-bold text-black">{testimonial.author}</p>
-                  <p className="text-sm text-gray-600">{testimonial.business}</p>
-                </div>
-              </div>
-            </Card>
+      <section className="relative w-full py-16 md:py-24 bg-gradient-to-br from-[#1A3263] via-[#0f1f40] to-black overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute bg-white rounded-full animate-float"
+              style={{
+                width: Math.random() * 4 + 2 + 'px',
+                height: Math.random() * 4 + 2 + 'px',
+                left: Math.random() * 100 + '%',
+                top: Math.random() * 100 + '%',
+                animationDelay: Math.random() * 3 + 's',
+                animationDuration: Math.random() * 10 + 10 + 's',
+              }}
+            />
           ))}
         </div>
-      </Section>
+
+        <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center mb-12">
+            <div className="inline-block bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+              <span className="text-white/90 font-semibold tracking-wider uppercase text-sm">
+                Success Stories
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
+              Our Success Stories
+            </h2>
+            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Explore how we transformed businesses and digital experiences across Kenya
+            </p>
+          </div>
+
+          {/* Success Stories Carousel */}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${successStorySlide * 100}%)` }}
+              >
+                {[
+                  {
+                    name: 'George Oketch',
+                    role: 'Entrepreneur',
+                    service: 'Business Growth Strategy',
+                    image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    feedback: 'Your solutions doubled our revenue in just 3 months—seamless growth we never imagined!',
+                    tagline: 'Transformed business growth with strategic marketing',
+                  },
+                  {
+                    name: 'Jedi Pets',
+                    role: 'Product Design Company',
+                    service: 'Product Design & Innovation',
+                    image: 'https://images.pexels.com/photos/1367269/pexels-photo-1367269.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    feedback: 'From prototype to market leader, your design expertise brought our pet tech vision to life.',
+                    tagline: 'Revolutionized product innovation and market fit',
+                  },
+                  {
+                    name: 'Achego Electricals',
+                    role: 'Retail Business',
+                    service: 'Website & Social Media Management',
+                    image: 'https://images.pexels.com/photos/273209/pexels-photo-273209.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    feedback: 'Online orders skyrocketed 5x after your digital overhaul—customers love the new vibe!',
+                    tagline: 'Boosted online presence and customer engagement',
+                  },
+                  {
+                    name: 'Voltmatic Energy Solutions',
+                    role: 'Energy Company',
+                    service: 'Graphic Design & Branding',
+                    image: 'https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    feedback: 'Stunning visuals transformed our brand; leads poured in from every campaign we launched.',
+                    tagline: 'Elevated brand visuals and marketing impact',
+                  },
+                ].map((story, index) => (
+                  <div key={index} className="w-full flex-shrink-0 px-4">
+                    <Card
+                      padding="none"
+                      hover
+                      className="overflow-hidden bg-gradient-to-br from-gray-900 to-black border-white/10 group"
+                      onMouseEnter={() => setExpandedStory(index)}
+                      onMouseLeave={() => setExpandedStory(null)}
+                    >
+                      <div className="grid md:grid-cols-2 gap-0">
+                        {/* Left Side - Image with Overlay */}
+                        <div className="relative h-80 md:h-96 overflow-hidden">
+                          <img
+                            src={story.image}
+                            alt={story.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                            <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-lg">
+                              {story.name}
+                            </h3>
+                            <p className="text-white/90 font-semibold mb-2 drop-shadow">
+                              {story.role}
+                            </p>
+                            <p className="text-white/80 text-sm drop-shadow">
+                              {story.service}
+                            </p>
+                          </div>
+
+                          {/* Glow Effect on Hover */}
+                          <div className="absolute inset-0 bg-[#1A3263]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+
+                        {/* Right Side - Case Study Panel */}
+                        <div className="relative bg-white p-6 md:p-8 flex flex-col justify-between">
+                          <div>
+                            <div className="inline-block bg-[#1A3263] text-white px-4 py-2 rounded-lg mb-6 font-bold text-sm tracking-wide uppercase">
+                              Case Study
+                            </div>
+                            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                              {story.tagline}
+                            </p>
+
+                            {/* Expandable Feedback */}
+                            <div
+                              className={`transition-all duration-500 overflow-hidden ${
+                                expandedStory === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                              }`}
+                            >
+                              <div className="bg-gray-50 rounded-xl p-6 border-l-4 border-[#1A3263] animate-slide-up">
+                                <p className="text-gray-800 font-semibold italic leading-relaxed">
+                                  "{story.feedback}"
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Stats/Metrics */}
+                          <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
+                            {[
+                              { label: 'Revenue Growth', value: index === 0 ? '200%' : index === 1 ? '350%' : index === 2 ? '500%' : '420%' },
+                              { label: 'Time Saved', value: index === 0 ? '15hrs' : index === 1 ? '20hrs' : index === 2 ? '25hrs' : '18hrs' },
+                              { label: 'ROI', value: index === 0 ? '5.2x' : index === 1 ? '6.8x' : index === 2 ? '7.5x' : '6.1x' },
+                            ].map((stat) => (
+                              <div key={stat.label} className="text-center">
+                                <div className="text-2xl font-black text-[#1A3263] mb-1">
+                                  {stat.value}
+                                </div>
+                                <div className="text-xs text-gray-600 font-semibold">
+                                  {stat.label}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={() => setSuccessStorySlide((prev) => (prev === 0 ? 3 : prev - 1))}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-2xl hover:bg-white transition-all duration-300 hover:scale-110 z-20"
+              aria-label="Previous story"
+            >
+              <ChevronLeft className="h-6 w-6 text-[#1A3263]" />
+            </button>
+            <button
+              onClick={() => setSuccessStorySlide((prev) => (prev === 3 ? 0 : prev + 1))}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-2xl hover:bg-white transition-all duration-300 hover:scale-110 z-20"
+              aria-label="Next story"
+            >
+              <ChevronRight className="h-6 w-6 text-[#1A3263]" />
+            </button>
+
+            {/* Navigation Dots */}
+            <div className="flex justify-center gap-3 mt-8">
+              {[0, 1, 2, 3].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setSuccessStorySlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === successStorySlide
+                      ? 'w-12 bg-white shadow-lg shadow-white/50'
+                      : 'w-2.5 bg-white/40 hover:bg-white/60'
+                  }`}
+                  aria-label={`Go to story ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {latestPosts.length > 0 && (
         <Section background="white" padding="xl">
