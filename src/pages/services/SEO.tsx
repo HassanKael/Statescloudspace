@@ -35,13 +35,13 @@ export default function SEO() {
     {
       id: 3,
       title: 'Content Fortress',
-      description: 'AI + human content that Google loves. SEO-optimized articles, landing pages, and blog posts written by Kenyan experts who understand your local market.',
+      description: 'AI + human content that Google loves. SEO-optimized articles, landing pages, and blog posts written by expert content creators who understand your market.',
       icon: '✍️',
     },
     {
       id: 4,
       title: 'Link Velocity',
-      description: 'Safe, high-authority backlinks. We build relationships with Kenyan and international publications to earn links that boost your domain authority naturally.',
+      description: 'Safe, high-authority backlinks. We build relationships with industry publications to earn links that boost your domain authority naturally.',
       icon: '🔗',
     },
     {
@@ -55,7 +55,7 @@ export default function SEO() {
   const whyChooseUs = [
     {
       title: 'AI Keyword Domination',
-      subtitle: 'Hyper-local Kenyan targeting',
+      subtitle: 'Hyper-local targeting',
       demo: 'kenyan-keywords',
       metrics: 'Rank #1 in 90 days',
     },
@@ -73,7 +73,7 @@ export default function SEO() {
     },
     {
       title: 'Local SEO Mastery',
-      subtitle: 'Dominate Nairobi & beyond',
+      subtitle: 'Dominate your local market',
       demo: 'local-map',
       metrics: '5★ reviews multiplying',
     },
@@ -91,14 +91,14 @@ export default function SEO() {
 
   return (
     <>
-      <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-[#1e1b4b] via-[#7c3aed]/20 to-black overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-[#1A3263] via-[#0f1f40] to-black overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 opacity-20">
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#facc15]/30 to-transparent animate-pulse-slow"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/30 to-transparent animate-pulse-slow"></div>
             {[...Array(20)].map((_, i) => (
               <div
                 key={i}
-                className="absolute bg-[#facc15] rounded-full animate-pulse"
+                className="absolute bg-white rounded-full animate-pulse"
                 style={{
                   width: Math.random() * 3 + 1 + 'px',
                   height: Math.random() * 100 + 20 + 'px',
@@ -116,7 +116,7 @@ export default function SEO() {
         {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="absolute bg-[#facc15] rounded-full animate-float"
+            className="absolute bg-white rounded-full animate-float"
             style={{
               width: Math.random() * 4 + 2 + 'px',
               height: Math.random() * 4 + 2 + 'px',
@@ -133,33 +133,33 @@ export default function SEO() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block mb-6 animate-fadeIn">
-                <span className="text-[#facc15] font-bold tracking-wider uppercase text-sm px-4 py-2 bg-[#facc15]/10 backdrop-blur-sm rounded-full border border-[#facc15]/30">
-                  Nairobi's #1 AI SEO Agency
+                <span className="text-white font-bold tracking-wider uppercase text-sm px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/30">
+                  AI-Powered SEO Agency
                 </span>
               </div>
               <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1] animate-slideUp">
                 AI-Powered SEO That Delivers Real ROI
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                Dominate Google rankings with AI automation + Kenyan market expertise. Watch your business explode with qualified leads while competitors wonder what hit them.
+                Dominate Google rankings with AI automation and expert strategies. Watch your business explode with qualified leads while competitors wonder what hit them.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-[#7c3aed]/30">
-                  <span className="text-[#facc15] font-black text-2xl">247%</span>
-                  <span className="text-white ml-2">Avg Traffic Growth</span>
+                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+                  <span className="text-white font-black text-2xl">247%</span>
+                  <span className="text-white/80 ml-2">Avg Traffic Growth</span>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-[#7c3aed]/30">
-                  <span className="text-[#facc15] font-black text-2xl">90</span>
-                  <span className="text-white ml-2">Day Results</span>
+                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
+                  <span className="text-white font-black text-2xl">90</span>
+                  <span className="text-white/80 ml-2">Day Results</span>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="#roi-calculator" variant="primary" size="lg" className="text-lg px-10 py-5 bg-[#facc15] text-black hover:bg-white hover:text-black border-2 border-[#facc15]">
-                  Piga Simu Sasa!
+                <Button href="#roi-calculator" variant="primary" size="lg" className="text-lg px-10 py-5">
+                  Get Started Now
                 </Button>
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-[#7c3aed] hover:border-[#7c3aed] transition-all duration-300"
+                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#1A3263] transition-all duration-300"
                 >
                   Free Site Audit
                 </Link>
@@ -168,13 +168,13 @@ export default function SEO() {
 
             <div id="roi-calculator" className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl">
               <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Sparkles className="h-6 w-6 text-[#facc15]" />
+                <Sparkles className="h-6 w-6 text-white" />
                 Live ROI Calculator
               </h3>
               <div className="space-y-6">
                 <div>
                   <label className="block text-gray-300 mb-3 font-semibold">
-                    Monthly Traffic Goal: <span className="text-[#facc15] text-xl">{trafficGoal.toLocaleString()}</span>
+                    Monthly Traffic Goal: <span className="text-white text-xl">{trafficGoal.toLocaleString()}</span>
                   </label>
                   <input
                     type="range"
@@ -183,25 +183,25 @@ export default function SEO() {
                     step="5000"
                     value={trafficGoal}
                     onChange={(e) => setTrafficGoal(Number(e.target.value))}
-                    className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-[#facc15]"
+                    className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-[#1A3263]"
                   />
                 </div>
-                <div className="bg-gradient-to-br from-[#7c3aed]/20 to-[#facc15]/10 border border-[#7c3aed]/30 rounded-xl p-6 space-y-4">
+                <div className="bg-gradient-to-br from-[#1A3263]/40 to-white/10 border border-white/30 rounded-xl p-6 space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Projected Leads/Month:</span>
-                    <span className="text-[#facc15] text-2xl font-black">{projectedLeads}</span>
+                    <span className="text-white text-2xl font-black">{projectedLeads}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Projected Revenue:</span>
-                    <span className="text-[#facc15] text-2xl font-black">KSh {projectedRevenue}</span>
+                    <span className="text-white text-2xl font-black">${projectedRevenue}</span>
                   </div>
                   <div className="pt-4 border-t border-white/10">
                     <p className="text-sm text-gray-400">
-                      Based on 2% conversion rate at KSh 500 avg. customer value
+                      Based on 2% conversion rate at $500 avg. customer value
                     </p>
                   </div>
                 </div>
-                <Button href="/contact" variant="primary" className="w-full bg-[#facc15] text-black hover:bg-white font-bold">
+                <Button href="/contact" variant="primary" className="w-full font-bold">
                   Get This Growth
                 </Button>
               </div>
@@ -225,12 +225,12 @@ export default function SEO() {
                 key={index}
                 className={`relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border-2 cursor-pointer transition-all duration-500 ${
                   activeCard === index
-                    ? 'border-[#7c3aed] shadow-2xl shadow-[#7c3aed]/20 scale-105'
-                    : 'border-gray-200 hover:border-[#facc15] hover:shadow-xl'
+                    ? 'border-[#1A3263] shadow-2xl shadow-[#1A3263]/20 scale-105'
+                    : 'border-gray-200 hover:border-[#1A3263] hover:shadow-xl'
                 }`}
                 onClick={() => setActiveCard(index)}
               >
-                <div className="absolute -top-3 -right-3 bg-[#facc15] text-black font-black px-3 py-1 rounded-full text-sm">
+                <div className="absolute -top-3 -right-3 bg-[#1A3263] text-white font-black px-3 py-1 rounded-full text-sm">
                   {card.metrics}
                 </div>
 
@@ -249,12 +249,12 @@ export default function SEO() {
         </div>
       </Section>
 
-      <section className="relative py-20 bg-gradient-to-br from-[#1e1b4b] via-black to-[#1e1b4b] overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-[#1A3263] via-black to-[#1A3263] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
-              className="absolute bg-[#facc15] rounded-full"
+              className="absolute bg-white rounded-full"
               style={{
                 width: Math.random() * 2 + 1 + 'px',
                 height: Math.random() * 2 + 1 + 'px',
@@ -280,13 +280,13 @@ export default function SEO() {
               <button
                 key={step.id}
                 onClick={() => setSelectedProcess(step)}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-[#7c3aed]/20 hover:border-[#7c3aed] transition-all duration-300 hover:scale-105"
+                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-[#1A3263]/40 hover:border-[#1A3263] transition-all duration-300 hover:scale-105"
               >
                 <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
                   {step.icon}
                 </div>
                 <h3 className="text-white font-bold text-sm leading-tight">{step.title}</h3>
-                <div className="absolute top-2 right-2 text-[#facc15] text-xs font-bold bg-[#facc15]/20 px-2 py-1 rounded">
+                <div className="absolute top-2 right-2 text-white text-xs font-bold bg-white/20 px-2 py-1 rounded">
                   0{step.id}
                 </div>
               </button>
@@ -294,13 +294,13 @@ export default function SEO() {
           </div>
 
           {selectedProcess && (
-            <div className="bg-white/10 backdrop-blur-md border border-[#7c3aed] rounded-2xl p-8 animate-slideUp">
+            <div className="bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl p-8 animate-slideUp">
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-4">
                   <div className="text-6xl">{selectedProcess.icon}</div>
                   <div>
                     <h3 className="text-3xl font-black text-white">{selectedProcess.title}</h3>
-                    <p className="text-[#facc15]">Step {selectedProcess.id} of 5</p>
+                    <p className="text-white/80">Step {selectedProcess.id} of 5</p>
                   </div>
                 </div>
                 <button
@@ -325,75 +325,75 @@ export default function SEO() {
             <p className="text-xl text-gray-600">Data doesn't lie - see how we compare</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#7c3aed]/20">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#1A3263]/20">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-gradient-to-r from-[#1e1b4b] to-[#7c3aed]">
+                  <tr className="bg-gradient-to-r from-[#1A3263] to-[#0f1f40]">
                     <th className="text-left p-6 text-white font-bold text-lg">Metric</th>
                     <th className="text-center p-6 text-white/70 font-semibold">Industry Average</th>
-                    <th className="text-center p-6 text-[#facc15] font-black text-xl">Our Clients</th>
+                    <th className="text-center p-6 text-white font-black text-xl">Our Clients</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                     <td className="p-6 font-semibold text-gray-800">Organic Traffic Growth</td>
                     <td className="text-center p-6 text-gray-600">+15%</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#7c3aed]">+247%</td>
+                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">+247%</td>
                   </tr>
                   <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                     <td className="p-6 font-semibold text-gray-800">Keyword Rankings (Top 3)</td>
                     <td className="text-center p-6 text-gray-600">20/month</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#7c3aed]">150+/month</td>
+                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">150+/month</td>
                   </tr>
                   <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                     <td className="p-6 font-semibold text-gray-800">ROI Timeline</td>
                     <td className="text-center p-6 text-gray-600">12+ months</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#7c3aed]">90 days</td>
+                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">90 days</td>
                   </tr>
                   <tr className="hover:bg-gray-50 transition-colors">
                     <td className="p-6 font-semibold text-gray-800">Client Satisfaction</td>
                     <td className="text-center p-6 text-gray-600">78%</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#7c3aed]">98%</td>
+                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">98%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          <div className="mt-12 bg-gradient-to-br from-[#1e1b4b] to-[#7c3aed] rounded-2xl p-8 md:p-12 text-white">
+          <div className="mt-12 bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-2xl p-8 md:p-12 text-white">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="flex items-center gap-2 mb-4">
-                  <Star className="h-6 w-6 text-[#facc15] fill-[#facc15]" />
-                  <Star className="h-6 w-6 text-[#facc15] fill-[#facc15]" />
-                  <Star className="h-6 w-6 text-[#facc15] fill-[#facc15]" />
-                  <Star className="h-6 w-6 text-[#facc15] fill-[#facc15]" />
-                  <Star className="h-6 w-6 text-[#facc15] fill-[#facc15]" />
+                  <Star className="h-6 w-6 text-white fill-white" />
+                  <Star className="h-6 w-6 text-white fill-white" />
+                  <Star className="h-6 w-6 text-white fill-white" />
+                  <Star className="h-6 w-6 text-white fill-white" />
+                  <Star className="h-6 w-6 text-white fill-white" />
                 </div>
                 <blockquote className="text-2xl font-bold mb-4">
                   "SEO tripled my leads in 90 days. Now I'm turning away clients!"
                 </blockquote>
                 <p className="text-white/80 mb-2">George Oketch</p>
-                <p className="text-[#facc15] font-semibold">Founder, OkeTech Solutions (Nairobi)</p>
+                <p className="text-white/90 font-semibold">Founder, OkeTech Solutions</p>
               </div>
               <div className="space-y-4">
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <div className="flex items-center justify-between">
                     <span className="text-white/80">Traffic Growth</span>
-                    <span className="text-[#facc15] text-2xl font-black">+340%</span>
+                    <span className="text-white text-2xl font-black">+340%</span>
                   </div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <div className="flex items-center justify-between">
                     <span className="text-white/80">New Keywords Ranking</span>
-                    <span className="text-[#facc15] text-2xl font-black">187</span>
+                    <span className="text-white text-2xl font-black">187</span>
                   </div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                   <div className="flex items-center justify-between">
                     <span className="text-white/80">Revenue Increase</span>
-                    <span className="text-[#facc15] text-2xl font-black">KSh 2.4M</span>
+                    <span className="text-white text-2xl font-black">$240K</span>
                   </div>
                 </div>
               </div>
@@ -402,12 +402,12 @@ export default function SEO() {
         </div>
       </Section>
 
-      <section className="relative py-20 bg-gradient-to-br from-black via-[#1e1b4b] to-black overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-black via-[#1A3263] to-black overflow-hidden">
         <div className="absolute inset-0">
           {[...Array(100)].map((_, i) => (
             <div
               key={i}
-              className="absolute bg-[#facc15] rounded-full opacity-20"
+              className="absolute bg-white rounded-full opacity-20"
               style={{
                 width: Math.random() * 3 + 1 + 'px',
                 height: Math.random() * 3 + 1 + 'px',
@@ -422,17 +422,17 @@ export default function SEO() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
           <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="bg-white/10 backdrop-blur-md border-2 border-[#facc15] rounded-2xl px-8 py-4">
-              <div className="text-[#facc15] text-4xl font-black mb-2">247%</div>
-              <div className="text-white text-sm">Avg Traffic Growth</div>
+            <div className="bg-white/10 backdrop-blur-md border-2 border-white rounded-2xl px-8 py-4">
+              <div className="text-white text-4xl font-black mb-2">247%</div>
+              <div className="text-white/80 text-sm">Avg Traffic Growth</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md border-2 border-[#7c3aed] rounded-2xl px-8 py-4">
-              <div className="text-[#7c3aed] text-4xl font-black mb-2">90-Day</div>
-              <div className="text-white text-sm">Results Guarantee</div>
+            <div className="bg-white/10 backdrop-blur-md border-2 border-white rounded-2xl px-8 py-4">
+              <div className="text-white text-4xl font-black mb-2">90-Day</div>
+              <div className="text-white/80 text-sm">Results Guarantee</div>
             </div>
             <div className="bg-white/10 backdrop-blur-md border-2 border-white rounded-2xl px-8 py-4">
               <div className="text-white text-4xl font-black mb-2">#1</div>
-              <div className="text-white text-sm">In Nairobi</div>
+              <div className="text-white/80 text-sm">SEO Agency</div>
             </div>
           </div>
 
@@ -440,16 +440,16 @@ export default function SEO() {
             Ready to Dominate Google?
           </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Join 200+ Kenyan businesses crushing their SEO goals. Get your free audit and see exactly how we'll grow your rankings.
+            Join 200+ businesses crushing their SEO goals. Get your free audit and see exactly how we'll grow your rankings.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               href="/contact"
               variant="primary"
               size="lg"
-              className="text-lg px-12 py-6 bg-[#facc15] text-black hover:bg-white hover:scale-105 font-black"
+              className="text-lg px-12 py-6 hover:scale-105 font-black"
             >
-              Tuanzie Sasa! (Start Now!)
+              Start Now
             </Button>
             <Link
               to="/services"
@@ -466,7 +466,7 @@ export default function SEO() {
 
 function KeywordDemo({ active }: { active: boolean }) {
   const [keyword, setKeyword] = useState('');
-  const suggestions = ['Nairobi pet food delivery', 'Best coffee shop Westlands', 'Affordable web design Kenya'];
+  const suggestions = ['Best pet food delivery', 'Top coffee shop near me', 'Affordable web design services'];
 
   useEffect(() => {
     if (active) {
@@ -591,7 +591,7 @@ function LocalMapDemo({ active }: { active: boolean }) {
     <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
       <div className="flex items-center gap-2 mb-3">
         <MapPin className="h-4 w-4 text-red-500" />
-        <span className="text-xs font-semibold text-gray-700">Nairobi CBD</span>
+        <span className="text-xs font-semibold text-gray-700">Local Area</span>
       </div>
       <div className="bg-white rounded p-2 border border-gray-200">
         <div className="flex items-center gap-1 mb-1">
