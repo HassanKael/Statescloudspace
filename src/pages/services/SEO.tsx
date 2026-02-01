@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   CheckCircle, ArrowRight, ChevronDown, Search, TrendingUp, BarChart3,
-  Target, Globe, Star, Award, FileText, Link2, Users, Zap
+  Target, Globe, Star, Award, FileText, Link2, Users, Zap, X
 } from 'lucide-react';
 import Section from '../../components/Section';
 import Button from '../../components/Button';
@@ -13,10 +13,21 @@ interface FAQ {
   answer: string;
 }
 
+interface ServiceDetail {
+  icon: any;
+  title: string;
+  description: string;
+  features: string[];
+  detailedDescription: string;
+  image: string;
+}
+
 export default function SEO() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [currentStat, setCurrentStat] = useState(0);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [animationDirection, setAnimationDirection] = useState<'left' | 'right'>('left');
 
   useEffect(() => {
     const testimonialTimer = setInterval(() => {
@@ -32,42 +43,54 @@ export default function SEO() {
     return () => clearInterval(statTimer);
   }, []);
 
-  const services = [
+  const services: ServiceDetail[] = [
     {
       icon: Search,
       title: 'Keyword Research & Strategy',
       description: 'In-depth analysis to identify high-converting keywords that drive qualified traffic to your business.',
-      features: ['Competitor keyword analysis', 'Long-tail keyword opportunities', 'Search intent mapping', 'Keyword difficulty scoring']
+      features: ['Competitor keyword analysis', 'Long-tail keyword opportunities', 'Search intent mapping', 'Keyword difficulty scoring'],
+      detailedDescription: 'Our expert team provides detailed keyword research and market analysis to help you accurately target your audience and dominate search rankings. Our in-depth research and analysis take into account a variety of factors, including search volume, competition level, user intent, and seasonal trends to ensure maximum ROI.',
+      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: FileText,
       title: 'On-Page SEO Optimization',
       description: 'Complete optimization of your website content, structure, and technical elements for maximum search visibility.',
-      features: ['Title tag & meta optimization', 'Header structure refinement', 'Content optimization', 'Internal linking strategy']
+      features: ['Title tag & meta optimization', 'Header structure refinement', 'Content optimization', 'Internal linking strategy'],
+      detailedDescription: 'We use our extensive expertise to optimize every element of your web pages. From professional content structuring and keyword placement to targeted internal linking, we use a variety of strategies to ensure search engines understand and rank your content effectively.',
+      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: Zap,
       title: 'Technical SEO',
       description: 'Fix technical issues that prevent search engines from properly crawling and indexing your website.',
-      features: ['Site speed optimization', 'Mobile responsiveness', 'Schema markup implementation', 'XML sitemap optimization']
+      features: ['Site speed optimization', 'Mobile responsiveness', 'Schema markup implementation', 'XML sitemap optimization'],
+      detailedDescription: 'Our team is dedicated to identifying and resolving technical issues that hinder your search performance. We ensure your website is fast, mobile-friendly, and fully optimized for search engine crawlers, providing the best possible technical foundation for rankings.',
+      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: Link2,
       title: 'Link Building',
       description: 'Earn high-quality backlinks from authoritative websites to boost your domain authority and rankings.',
-      features: ['White-hat link acquisition', 'Guest posting outreach', 'Broken link building', 'Digital PR campaigns']
+      features: ['White-hat link acquisition', 'Guest posting outreach', 'Broken link building', 'Digital PR campaigns'],
+      detailedDescription: 'We build high-quality, authoritative backlinks through ethical outreach and relationship building. Our team understands that quality links are crucial for rankings, so we work strategically to acquire links that provide real SEO value and long-term benefits.',
+      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: FileText,
       title: 'Content Marketing',
       description: 'Strategic content creation that attracts, engages, and converts your target audience.',
-      features: ['SEO-optimized blog posts', 'Landing page copywriting', 'Content calendar planning', 'Topic cluster strategy']
+      features: ['SEO-optimized blog posts', 'Landing page copywriting', 'Content calendar planning', 'Topic cluster strategy'],
+      detailedDescription: 'Strategic content creation that attracts, engages, and converts your target audience. From professional copywriting and blog posts to comprehensive content strategies, we create compelling content that ranks well and drives conversions.',
+      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: Target,
       title: 'Local SEO',
       description: 'Dominate local search results and attract nearby customers actively looking for your services.',
-      features: ['Google Business Profile optimization', 'Local citation building', 'Review management', 'Local keyword targeting']
+      features: ['Google Business Profile optimization', 'Local citation building', 'Review management', 'Local keyword targeting'],
+      detailedDescription: 'Our team specializes in helping local businesses dominate their geographic market. We optimize your online presence to ensure you appear prominently in local search results, attract nearby customers, and build a strong reputation in your community.',
+      image: 'https://images.pexels.com/photos/3184639/pexels-photo-3184639.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
@@ -165,6 +188,15 @@ export default function SEO() {
     }
   ];
 
+  const handleServiceClick = (index: number) => {
+    if (selectedService === index) {
+      setSelectedService(null);
+    } else {
+      setAnimationDirection(index % 2 === 0 ? 'left' : 'right');
+      setSelectedService(index);
+    }
+  };
+
   return (
     <>
       <section className="relative bg-gradient-to-br from-[#1A3263] via-[#0f1f40] to-black py-20 md:py-32 overflow-hidden">
@@ -227,38 +259,127 @@ export default function SEO() {
       <Section background="white" padding="xl" id="services">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Comprehensive SEO Services
+            How We Help You
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to dominate search results and outrank your competition.
+            Our team of experts is dedicated to helping you achieve your SEO goals.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
           {services.map((service, index) => (
-            <Card key={index} hover padding="lg" className="group">
-              <div className="bg-primary/5 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-all duration-300">
-                <service.icon className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold text-black mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-              <ul className="space-y-3">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start text-sm">
-                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
+            <div
+              key={index}
+              onClick={() => handleServiceClick(index)}
+              className="group cursor-pointer"
+            >
+              <Card hover padding="lg" className="h-full transition-all duration-300 hover:shadow-2xl">
+                <div className="bg-gradient-to-br from-[#1A3263]/5 to-[#1A3263]/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:from-[#1A3263]/10 group-hover:to-[#1A3263]/20 transition-all duration-300">
+                  <service.icon className="h-8 w-8 text-[#1A3263]" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-4">{service.title}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed text-sm">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start text-sm">
+                      <CheckCircle className="h-5 w-5 text-[#1A3263] mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6">
+                  <button className="inline-flex items-center text-white bg-[#1A3263] hover:bg-[#0f1f40] px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 group-hover:shadow-lg">
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </button>
+                </div>
+              </Card>
+            </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button href="/contact" variant="primary" size="lg">
-            Get Started with SEO
-          </Button>
-        </div>
+        {selectedService !== null && (
+          <div className="max-w-6xl mx-auto mt-16 overflow-hidden">
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl shadow-2xl p-8 md:p-12 relative">
+              <button
+                onClick={() => setSelectedService(null)}
+                className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors z-10"
+              >
+                <X className="h-6 w-6 text-gray-600" />
+              </button>
+
+              <div
+                className={`grid md:grid-cols-2 gap-12 items-center ${
+                  animationDirection === 'left'
+                    ? 'animate-slideInLeft'
+                    : 'animate-slideInRight'
+                }`}
+              >
+                {animationDirection === 'left' ? (
+                  <>
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1A3263]/20 to-purple-200/40 rounded-full blur-3xl"></div>
+                      <div className="relative bg-white rounded-full p-8 shadow-xl">
+                        <img
+                          src={services[selectedService].image}
+                          alt={services[selectedService].title}
+                          className="w-full h-64 object-cover rounded-full"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="bg-[#1A3263]/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        {(() => {
+                          const Icon = services[selectedService].icon;
+                          return <Icon className="h-8 w-8 text-[#1A3263]" />;
+                        })()}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                        {services[selectedService].title}
+                      </h3>
+                      <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                        {services[selectedService].detailedDescription}
+                      </p>
+                      <Button href="/contact" variant="primary" size="lg">
+                        Get Started
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div>
+                      <div className="bg-[#1A3263]/5 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        {(() => {
+                          const Icon = services[selectedService].icon;
+                          return <Icon className="h-8 w-8 text-[#1A3263]" />;
+                        })()}
+                      </div>
+                      <h3 className="text-3xl md:text-4xl font-bold text-black mb-6">
+                        {services[selectedService].title}
+                      </h3>
+                      <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                        {services[selectedService].detailedDescription}
+                      </p>
+                      <Button href="/contact" variant="primary" size="lg">
+                        Get Started
+                      </Button>
+                    </div>
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1A3263]/20 to-purple-200/40 rounded-full blur-3xl"></div>
+                      <div className="relative bg-white rounded-full p-8 shadow-xl">
+                        <img
+                          src={services[selectedService].image}
+                          alt={services[selectedService].title}
+                          className="w-full h-64 object-cover rounded-full"
+                        />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </Section>
 
       <Section background="gray" padding="xl">
