@@ -1,609 +1,451 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  CheckCircle, ArrowRight, X, Search, TrendingUp, BarChart3,
-  Target, Zap, Shield, Globe, Sparkles, Star, Award, MapPin
+  CheckCircle, ArrowRight, ChevronDown, Search, TrendingUp, BarChart3,
+  Target, Globe, Star, Award, FileText, Link2, Users, Zap
 } from 'lucide-react';
 import Section from '../../components/Section';
 import Button from '../../components/Button';
+import Card from '../../components/Card';
 
-interface ProcessStep {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
+interface FAQ {
+  question: string;
+  answer: string;
 }
 
 export default function SEO() {
-  const [trafficGoal, setTrafficGoal] = useState(10000);
-  const [selectedProcess, setSelectedProcess] = useState<ProcessStep | null>(null);
-  const [activeCard, setActiveCard] = useState(0);
-
-  const processSteps: ProcessStep[] = [
-    {
-      id: 1,
-      title: 'AI Site Audit',
-      description: 'We scan 100+ issues robots miss. Our AI crawlers detect broken links, slow pages, missing schema, duplicate content, and Core Web Vitals problems your competitors ignore.',
-      icon: '🔍',
-    },
-    {
-      id: 2,
-      title: 'Competitor Annihilation',
-      description: 'Steal their rankings legally. We reverse-engineer top competitors\' backlink profiles, content gaps, and keyword strategies to outrank them in 90 days.',
-      icon: '⚔️',
-    },
-    {
-      id: 3,
-      title: 'Content Fortress',
-      description: 'AI + human content that Google loves. SEO-optimized articles, landing pages, and blog posts written by expert content creators who understand your market.',
-      icon: '✍️',
-    },
-    {
-      id: 4,
-      title: 'Link Velocity',
-      description: 'Safe, high-authority backlinks. We build relationships with industry publications to earn links that boost your domain authority naturally.',
-      icon: '🔗',
-    },
-    {
-      id: 5,
-      title: '24/7 Rank Tracking',
-      description: 'Daily reports, zero guesswork. Real-time dashboard shows keyword positions, traffic trends, and ROI metrics. Get alerts when rankings change.',
-      icon: '📊',
-    },
-  ];
-
-  const whyChooseUs = [
-    {
-      title: 'AI Keyword Domination',
-      subtitle: 'Hyper-local targeting',
-      demo: 'kenyan-keywords',
-      metrics: 'Rank #1 in 90 days',
-    },
-    {
-      title: 'Content That Converts',
-      subtitle: 'AI + human expertise',
-      demo: 'content-generation',
-      metrics: '+300% organic traffic',
-    },
-    {
-      title: 'Technical SEO on Autopilot',
-      subtitle: 'Zero manual fixes needed',
-      demo: 'technical-scan',
-      metrics: '100/100 Core Web Vitals',
-    },
-    {
-      title: 'Local SEO Mastery',
-      subtitle: 'Dominate your local market',
-      demo: 'local-map',
-      metrics: '5★ reviews multiplying',
-    },
-  ];
-
-  const projectedRevenue = (trafficGoal * 0.02 * 500).toLocaleString();
-  const projectedLeads = Math.round(trafficGoal * 0.02);
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [currentStat, setCurrentStat] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveCard((prev) => (prev + 1) % whyChooseUs.length);
+    const testimonialTimer = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % 3);
     }, 5000);
-    return () => clearInterval(interval);
+    return () => clearInterval(testimonialTimer);
   }, []);
+
+  useEffect(() => {
+    const statTimer = setInterval(() => {
+      setCurrentStat((prev) => (prev + 1) % 4);
+    }, 3000);
+    return () => clearInterval(statTimer);
+  }, []);
+
+  const services = [
+    {
+      icon: Search,
+      title: 'Keyword Research & Strategy',
+      description: 'In-depth analysis to identify high-converting keywords that drive qualified traffic to your business.',
+      features: ['Competitor keyword analysis', 'Long-tail keyword opportunities', 'Search intent mapping', 'Keyword difficulty scoring']
+    },
+    {
+      icon: FileText,
+      title: 'On-Page SEO Optimization',
+      description: 'Complete optimization of your website content, structure, and technical elements for maximum search visibility.',
+      features: ['Title tag & meta optimization', 'Header structure refinement', 'Content optimization', 'Internal linking strategy']
+    },
+    {
+      icon: Zap,
+      title: 'Technical SEO',
+      description: 'Fix technical issues that prevent search engines from properly crawling and indexing your website.',
+      features: ['Site speed optimization', 'Mobile responsiveness', 'Schema markup implementation', 'XML sitemap optimization']
+    },
+    {
+      icon: Link2,
+      title: 'Link Building',
+      description: 'Earn high-quality backlinks from authoritative websites to boost your domain authority and rankings.',
+      features: ['White-hat link acquisition', 'Guest posting outreach', 'Broken link building', 'Digital PR campaigns']
+    },
+    {
+      icon: FileText,
+      title: 'Content Marketing',
+      description: 'Strategic content creation that attracts, engages, and converts your target audience.',
+      features: ['SEO-optimized blog posts', 'Landing page copywriting', 'Content calendar planning', 'Topic cluster strategy']
+    },
+    {
+      icon: Target,
+      title: 'Local SEO',
+      description: 'Dominate local search results and attract nearby customers actively looking for your services.',
+      features: ['Google Business Profile optimization', 'Local citation building', 'Review management', 'Local keyword targeting']
+    }
+  ];
+
+  const processSteps = [
+    {
+      number: '01',
+      title: 'Discovery & Audit',
+      description: 'We analyze your current SEO performance, identify opportunities, and audit your website for technical issues.'
+    },
+    {
+      number: '02',
+      title: 'Strategy Development',
+      description: 'Custom SEO roadmap tailored to your business goals, target audience, and competitive landscape.'
+    },
+    {
+      number: '03',
+      title: 'Implementation',
+      description: 'Execute on-page optimizations, technical fixes, and content creation according to the strategic plan.'
+    },
+    {
+      number: '04',
+      title: 'Link Building & Outreach',
+      description: 'Acquire high-quality backlinks through ethical outreach, content promotion, and relationship building.'
+    },
+    {
+      number: '05',
+      title: 'Monitoring & Reporting',
+      description: 'Track rankings, traffic, and conversions with detailed monthly reports and continuous optimization.'
+    }
+  ];
+
+  const stats = [
+    { value: '247%', label: 'Average Traffic Increase', color: 'text-[#1A3263]' },
+    { value: '90 Days', label: 'To See Results', color: 'text-[#1A3263]' },
+    { value: '150+', label: 'Keywords Ranked Top 3', color: 'text-[#1A3263]' },
+    { value: '98%', label: 'Client Satisfaction', color: 'text-[#1A3263]' }
+  ];
+
+  const testimonials = [
+    {
+      name: 'Sarah Mitchell',
+      company: 'Mitchell & Co.',
+      role: 'CEO',
+      content: 'Our organic traffic tripled in just four months. The team\'s expertise in both technical SEO and content strategy has been invaluable.',
+      results: { traffic: '+340%', leads: '+180%', revenue: '$240K' }
+    },
+    {
+      name: 'James Rodriguez',
+      company: 'TechStart Solutions',
+      role: 'Marketing Director',
+      content: 'Finally, an SEO agency that delivers what they promise. Rankings improved, qualified leads increased, and our ROI has been exceptional.',
+      results: { traffic: '+280%', leads: '+220%', revenue: '$310K' }
+    },
+    {
+      name: 'Emily Chen',
+      company: 'Urban Design Studio',
+      role: 'Founder',
+      content: 'The difference was night and day. Within 90 days we were ranking for competitive keywords we never thought possible.',
+      results: { traffic: '+195%', leads: '+160%', revenue: '$180K' }
+    }
+  ];
+
+  const faqs: FAQ[] = [
+    {
+      question: 'How long does it take to see results from SEO?',
+      answer: 'Most clients start seeing meaningful improvements within 60-90 days. However, SEO is a long-term strategy. Significant results typically manifest within 4-6 months, with continued growth over time. The timeline depends on factors like competition, current website status, and industry.'
+    },
+    {
+      question: 'What makes your SEO approach different?',
+      answer: 'We focus on sustainable, white-hat strategies that deliver long-term results. Our approach combines technical expertise, content excellence, and strategic link building. We don\'t use shortcuts or black-hat tactics that could harm your website. Every strategy is customized to your business goals and target audience.'
+    },
+    {
+      question: 'Do you guarantee first-page rankings?',
+      answer: 'While we can\'t ethically guarantee specific rankings (no one can truly guarantee this), we do guarantee measurable improvements in your organic visibility, traffic, and qualified leads. Our track record shows that 95% of our clients achieve first-page rankings for their target keywords within 6 months.'
+    },
+    {
+      question: 'How do you measure SEO success?',
+      answer: 'We track multiple KPIs including keyword rankings, organic traffic growth, conversion rates, backlink quality, and most importantly - revenue impact. You\'ll receive detailed monthly reports showing exactly how SEO is contributing to your business growth.'
+    },
+    {
+      question: 'What industries do you specialize in?',
+      answer: 'We work with businesses across various industries including B2B services, e-commerce, healthcare, legal, real estate, and technology. Our strategies are customized based on your specific industry dynamics, competition, and target audience behavior.'
+    },
+    {
+      question: 'Will I need to make changes to my website?',
+      answer: 'Yes, SEO requires website modifications including content updates, technical optimizations, and sometimes structural changes. We handle all the heavy lifting - from strategy to implementation. You\'ll have full visibility and approval over any changes before they go live.'
+    },
+    {
+      question: 'What is your pricing structure?',
+      answer: 'Our SEO services are customized based on your specific needs, competition level, and business goals. Pricing typically ranges from $2,000 to $10,000+ per month depending on scope. We offer month-to-month contracts with no long-term commitments required.'
+    },
+    {
+      question: 'Do you offer local SEO services?',
+      answer: 'Absolutely! Local SEO is one of our specialties. We optimize your Google Business Profile, build local citations, manage reviews, and implement location-specific strategies to help you dominate local search results and attract nearby customers.'
+    }
+  ];
 
   return (
     <>
-      <section className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-[#1A3263] via-[#0f1f40] to-black overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/30 to-transparent animate-pulse-slow"></div>
-            {[...Array(20)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute bg-white rounded-full animate-pulse"
-                style={{
-                  width: Math.random() * 3 + 1 + 'px',
-                  height: Math.random() * 100 + 20 + 'px',
-                  left: Math.random() * 100 + '%',
-                  bottom: 0,
-                  animationDelay: Math.random() * 2 + 's',
-                  animationDuration: Math.random() * 3 + 2 + 's',
-                  opacity: Math.random() * 0.3 + 0.1,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute bg-white rounded-full animate-float"
-            style={{
-              width: Math.random() * 4 + 2 + 'px',
-              height: Math.random() * 4 + 2 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
-              animationDelay: Math.random() * 5 + 's',
-              animationDuration: Math.random() * 20 + 15 + 's',
-              opacity: Math.random() * 0.6 + 0.2,
-            }}
-          />
-        ))}
-
-        <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-block mb-6 animate-fadeIn">
-                <span className="text-white font-bold tracking-wider uppercase text-sm px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/30">
-                  AI-Powered SEO Agency
-                </span>
-              </div>
-              <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-[1.1] animate-slideUp">
-                AI-Powered SEO That Delivers Real ROI
-              </h1>
-              <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                Dominate Google rankings with AI automation and expert strategies. Watch your business explode with qualified leads while competitors wonder what hit them.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-                  <span className="text-white font-black text-2xl">247%</span>
-                  <span className="text-white/80 ml-2">Avg Traffic Growth</span>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/30">
-                  <span className="text-white font-black text-2xl">90</span>
-                  <span className="text-white/80 ml-2">Day Results</span>
-                </div>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="#roi-calculator" variant="primary" size="lg" className="text-lg px-10 py-5">
-                  Get Started Now
-                </Button>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 text-lg bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#1A3263] transition-all duration-300"
-                >
-                  Free Site Audit
-                </Link>
-              </div>
-            </div>
-
-            <div id="roi-calculator" className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
-                <Sparkles className="h-6 w-6 text-white" />
-                Live ROI Calculator
-              </h3>
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-gray-300 mb-3 font-semibold">
-                    Monthly Traffic Goal: <span className="text-white text-xl">{trafficGoal.toLocaleString()}</span>
-                  </label>
-                  <input
-                    type="range"
-                    min="5000"
-                    max="100000"
-                    step="5000"
-                    value={trafficGoal}
-                    onChange={(e) => setTrafficGoal(Number(e.target.value))}
-                    className="w-full h-3 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-[#1A3263]"
-                  />
-                </div>
-                <div className="bg-gradient-to-br from-[#1A3263]/40 to-white/10 border border-white/30 rounded-xl p-6 space-y-4">
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Projected Leads/Month:</span>
-                    <span className="text-white text-2xl font-black">{projectedLeads}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-300">Projected Revenue:</span>
-                    <span className="text-white text-2xl font-black">${projectedRevenue}</span>
-                  </div>
-                  <div className="pt-4 border-t border-white/10">
-                    <p className="text-sm text-gray-400">
-                      Based on 2% conversion rate at $500 avg. customer value
-                    </p>
-                  </div>
-                </div>
-                <Button href="/contact" variant="primary" className="w-full font-bold">
-                  Get This Growth
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Section background="white" padding="xl">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-4 text-black">
-              Why Kenyan Businesses Choose Us
-            </h2>
-            <p className="text-xl text-gray-600">AI-powered solutions that understand your local market</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((card, index) => (
-              <div
-                key={index}
-                className={`relative bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border-2 cursor-pointer transition-all duration-500 ${
-                  activeCard === index
-                    ? 'border-[#1A3263] shadow-2xl shadow-[#1A3263]/20 scale-105'
-                    : 'border-gray-200 hover:border-[#1A3263] hover:shadow-xl'
-                }`}
-                onClick={() => setActiveCard(index)}
-              >
-                <div className="absolute -top-3 -right-3 bg-[#1A3263] text-white font-black px-3 py-1 rounded-full text-sm">
-                  {card.metrics}
-                </div>
-
-                <div className="mb-4">
-                  {card.demo === 'kenyan-keywords' && <KeywordDemo active={activeCard === index} />}
-                  {card.demo === 'content-generation' && <ContentDemo active={activeCard === index} />}
-                  {card.demo === 'technical-scan' && <TechnicalDemo active={activeCard === index} />}
-                  {card.demo === 'local-map' && <LocalMapDemo active={activeCard === index} />}
-                </div>
-
-                <h3 className="text-xl font-bold text-black mb-2">{card.title}</h3>
-                <p className="text-gray-600 text-sm">{card.subtitle}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      <section className="relative py-20 bg-gradient-to-br from-[#1A3263] via-black to-[#1A3263] overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#1A3263] via-[#0f1f40] to-black py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           {[...Array(50)].map((_, i) => (
             <div
               key={i}
               className="absolute bg-white rounded-full"
               style={{
-                width: Math.random() * 2 + 1 + 'px',
-                height: Math.random() * 2 + 1 + 'px',
+                width: Math.random() * 3 + 1 + 'px',
+                height: Math.random() * 3 + 1 + 'px',
                 left: Math.random() * 100 + '%',
                 top: Math.random() * 100 + '%',
-                animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+                animation: `float ${Math.random() * 20 + 15}s ease-in-out infinite`,
                 animationDelay: Math.random() * 5 + 's',
               }}
             />
           ))}
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-              Our Proven SEO Process
-            </h2>
-            <p className="text-xl text-gray-300">Click any step to see details</p>
+        <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+          <div className="text-center mb-12">
+            <div className="inline-block mb-6">
+              <span className="text-white/90 font-semibold tracking-wider uppercase text-sm px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                Professional SEO Services
+              </span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+              Drive More Traffic, Leads, and Revenue with SEO
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-10 max-w-4xl mx-auto leading-relaxed">
+              Strategic search engine optimization that improves your rankings, increases organic traffic, and grows your business.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button href="/contact" variant="primary" size="lg" className="text-lg px-10 py-5">
+                Get Your Free SEO Audit
+              </Button>
+              <Button href="#services" variant="outline" size="lg" className="text-lg px-10 py-5 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-[#1A3263]">
+                View Our Services
+              </Button>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-5 gap-4 mb-12">
-            {processSteps.map((step) => (
-              <button
-                key={step.id}
-                onClick={() => setSelectedProcess(step)}
-                className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-[#1A3263]/40 hover:border-[#1A3263] transition-all duration-300 hover:scale-105"
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className={`bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 text-center transition-all duration-500 ${
+                  currentStat === index ? 'scale-110 bg-white/20 shadow-2xl' : 'scale-100'
+                }`}
               >
-                <div className="text-5xl mb-3 group-hover:scale-110 transition-transform">
-                  {step.icon}
-                </div>
-                <h3 className="text-white font-bold text-sm leading-tight">{step.title}</h3>
-                <div className="absolute top-2 right-2 text-white text-xs font-bold bg-white/20 px-2 py-1 rounded">
-                  0{step.id}
-                </div>
-              </button>
+                <div className="text-white text-3xl md:text-4xl font-black mb-2">{stat.value}</div>
+                <div className="text-white/80 text-sm font-medium">{stat.label}</div>
+              </div>
             ))}
           </div>
-
-          {selectedProcess && (
-            <div className="bg-white/10 backdrop-blur-md border border-white/30 rounded-2xl p-8 animate-slideUp">
-              <div className="flex justify-between items-start mb-4">
-                <div className="flex items-center gap-4">
-                  <div className="text-6xl">{selectedProcess.icon}</div>
-                  <div>
-                    <h3 className="text-3xl font-black text-white">{selectedProcess.title}</h3>
-                    <p className="text-white/80">Step {selectedProcess.id} of 5</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setSelectedProcess(null)}
-                  className="p-2 hover:bg-white/10 rounded-full transition-colors"
-                >
-                  <X className="h-6 w-6 text-white" />
-                </button>
-              </div>
-              <p className="text-gray-300 text-lg leading-relaxed">{selectedProcess.description}</p>
-            </div>
-          )}
         </div>
       </section>
 
+      <Section background="white" padding="xl" id="services">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            Comprehensive SEO Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Everything you need to dominate search results and outrank your competition.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {services.map((service, index) => (
+            <Card key={index} hover padding="lg" className="group">
+              <div className="bg-primary/5 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-all duration-300">
+                <service.icon className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold text-black mb-4">{service.title}</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+              <ul className="space-y-3">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start text-sm">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button href="/contact" variant="primary" size="lg">
+            Get Started with SEO
+          </Button>
+        </div>
+      </Section>
+
       <Section background="gray" padding="xl">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+              Our Proven SEO Process
+            </h2>
+            <p className="text-xl text-gray-600">
+              A systematic approach that delivers consistent, measurable results.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-6">
+            {processSteps.map((step, index) => (
+              <div key={index} className="relative">
+                <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
+                  <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                    <span className="text-3xl font-black text-primary">{step.number}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-center mb-3 text-black">{step.title}</h3>
+                  <p className="text-sm text-gray-600 text-center leading-relaxed">{step.description}</p>
+                </div>
+                {index < processSteps.length - 1 && (
+                  <ArrowRight className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 h-6 w-6 text-primary z-10" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Section background="white" padding="xl">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
-              Real Results
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+              Real Results from Real Clients
             </h2>
-            <p className="text-xl text-gray-600">Data doesn't lie - see how we compare</p>
+            <p className="text-xl text-gray-600">
+              See how we've helped businesses grow their organic presence.
+            </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#1A3263]/20">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-gradient-to-r from-[#1A3263] to-[#0f1f40]">
-                    <th className="text-left p-6 text-white font-bold text-lg">Metric</th>
-                    <th className="text-center p-6 text-white/70 font-semibold">Industry Average</th>
-                    <th className="text-center p-6 text-white font-black text-xl">Our Clients</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-6 font-semibold text-gray-800">Organic Traffic Growth</td>
-                    <td className="text-center p-6 text-gray-600">+15%</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">+247%</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-6 font-semibold text-gray-800">Keyword Rankings (Top 3)</td>
-                    <td className="text-center p-6 text-gray-600">20/month</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">150+/month</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-6 font-semibold text-gray-800">ROI Timeline</td>
-                    <td className="text-center p-6 text-gray-600">12+ months</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">90 days</td>
-                  </tr>
-                  <tr className="hover:bg-gray-50 transition-colors">
-                    <td className="p-6 font-semibold text-gray-800">Client Satisfaction</td>
-                    <td className="text-center p-6 text-gray-600">78%</td>
-                    <td className="text-center p-6 font-black text-3xl text-[#1A3263]">98%</td>
-                  </tr>
-                </tbody>
-              </table>
+          <div className="relative">
+            <div className="bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-2xl p-8 md:p-12 text-white overflow-hidden">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className={`transition-opacity duration-500 ${
+                    activeTestimonial === index ? 'opacity-100' : 'opacity-0 absolute inset-0 p-8 md:p-12'
+                  }`}
+                >
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <div className="flex items-center gap-2 mb-6">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-6 w-6 text-white fill-white" />
+                        ))}
+                      </div>
+                      <blockquote className="text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
+                        "{testimonial.content}"
+                      </blockquote>
+                      <div>
+                        <p className="text-white font-bold text-lg">{testimonial.name}</p>
+                        <p className="text-white/80">{testimonial.role}, {testimonial.company}</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/90 font-medium">Traffic Growth</span>
+                          <span className="text-white text-3xl font-black">{testimonial.results.traffic}</span>
+                        </div>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/90 font-medium">Lead Increase</span>
+                          <span className="text-white text-3xl font-black">{testimonial.results.leads}</span>
+                        </div>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                        <div className="flex items-center justify-between">
+                          <span className="text-white/90 font-medium">Revenue Added</span>
+                          <span className="text-white text-3xl font-black">{testimonial.results.revenue}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
 
-          <div className="mt-12 bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-2xl p-8 md:p-12 text-white">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Star className="h-6 w-6 text-white fill-white" />
-                  <Star className="h-6 w-6 text-white fill-white" />
-                  <Star className="h-6 w-6 text-white fill-white" />
-                  <Star className="h-6 w-6 text-white fill-white" />
-                  <Star className="h-6 w-6 text-white fill-white" />
-                </div>
-                <blockquote className="text-2xl font-bold mb-4">
-                  "SEO tripled my leads in 90 days. Now I'm turning away clients!"
-                </blockquote>
-                <p className="text-white/80 mb-2">George Oketch</p>
-                <p className="text-white/90 font-semibold">Founder, OkeTech Solutions</p>
-              </div>
-              <div className="space-y-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <div className="flex items-center justify-between">
-                    <span className="text-white/80">Traffic Growth</span>
-                    <span className="text-white text-2xl font-black">+340%</span>
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <div className="flex items-center justify-between">
-                    <span className="text-white/80">New Keywords Ranking</span>
-                    <span className="text-white text-2xl font-black">187</span>
-                  </div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                  <div className="flex items-center justify-between">
-                    <span className="text-white/80">Revenue Increase</span>
-                    <span className="text-white text-2xl font-black">$240K</span>
-                  </div>
-                </div>
-              </div>
+            <div className="flex justify-center gap-3 mt-8">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === activeTestimonial
+                      ? 'w-12 bg-[#1A3263]'
+                      : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`View testimonial ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
       </Section>
 
-      <section className="relative py-20 bg-gradient-to-br from-black via-[#1A3263] to-black overflow-hidden">
-        <div className="absolute inset-0">
-          {[...Array(100)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute bg-white rounded-full opacity-20"
-              style={{
-                width: Math.random() * 3 + 1 + 'px',
-                height: Math.random() * 3 + 1 + 'px',
-                left: Math.random() * 100 + '%',
-                top: Math.random() * 100 + '%',
-                animation: `float ${Math.random() * 15 + 10}s ease-in-out infinite`,
-                animationDelay: Math.random() * 5 + 's',
-              }}
-            />
-          ))}
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-          <div className="flex flex-wrap justify-center gap-8 mb-12">
-            <div className="bg-white/10 backdrop-blur-md border-2 border-white rounded-2xl px-8 py-4">
-              <div className="text-white text-4xl font-black mb-2">247%</div>
-              <div className="text-white/80 text-sm">Avg Traffic Growth</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border-2 border-white rounded-2xl px-8 py-4">
-              <div className="text-white text-4xl font-black mb-2">90-Day</div>
-              <div className="text-white/80 text-sm">Results Guarantee</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border-2 border-white rounded-2xl px-8 py-4">
-              <div className="text-white text-4xl font-black mb-2">#1</div>
-              <div className="text-white/80 text-sm">SEO Agency</div>
-            </div>
+      <Section background="gray" padding="xl">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-gray-600">
+              Everything you need to know about our SEO services.
+            </p>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Ready to Dominate Google?
-          </h2>
-          <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Join 200+ businesses crushing their SEO goals. Get your free audit and see exactly how we'll grow your rankings.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              href="/contact"
-              variant="primary"
-              size="lg"
-              className="text-lg px-12 py-6 hover:scale-105 font-black"
-            >
-              Start Now
-            </Button>
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center px-12 py-6 text-lg bg-white/10 backdrop-blur-sm border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
-            >
-              View All Services
-            </Link>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left"
+                >
+                  <h3 className="text-lg font-bold text-black pr-8">{faq.question}</h3>
+                  <ChevronDown
+                    className={`h-6 w-6 text-primary flex-shrink-0 transition-transform duration-300 ${
+                      openFAQ === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`transition-all duration-300 ease-in-out ${
+                    openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  } overflow-hidden`}
+                >
+                  <div className="px-6 pb-6">
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+      </Section>
+
+      <Section background="white" padding="xl">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+          </div>
+          <div className="relative z-10">
+            <h2 className="text-white text-4xl md:text-5xl font-bold mb-6">
+              Ready to Dominate Search Results?
+            </h2>
+            <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Get a free SEO audit and discover exactly how we can grow your organic traffic and revenue.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                href="/contact"
+                variant="outline"
+                size="lg"
+                className="bg-white text-primary border-white hover:bg-primary hover:text-white text-lg px-10 py-5"
+              >
+                Get Your Free SEO Audit
+              </Button>
+              <Button
+                href="/services"
+                variant="outline"
+                size="lg"
+                className="bg-transparent text-white border-white hover:bg-white hover:text-primary text-lg px-10 py-5"
+              >
+                View All Services
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Section>
     </>
-  );
-}
-
-function KeywordDemo({ active }: { active: boolean }) {
-  const [keyword, setKeyword] = useState('');
-  const suggestions = ['Best pet food delivery', 'Top coffee shop near me', 'Affordable web design services'];
-
-  useEffect(() => {
-    if (active) {
-      let index = 0;
-      const interval = setInterval(() => {
-        setKeyword(suggestions[index]);
-        index = (index + 1) % suggestions.length;
-      }, 2000);
-      return () => clearInterval(interval);
-    }
-  }, [active]);
-
-  return (
-    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-      <div className="flex items-center gap-2 bg-white rounded px-3 py-2 border border-gray-300 mb-2">
-        <Search className="h-4 w-4 text-gray-400" />
-        <input
-          type="text"
-          value={keyword}
-          readOnly
-          className="flex-1 text-sm outline-none bg-transparent"
-          placeholder="Search keywords..."
-        />
-      </div>
-      {active && keyword && (
-        <div className="bg-white rounded border border-gray-200 p-2 animate-slideInUp">
-          <div className="flex items-center justify-between text-xs">
-            <span className="text-gray-700">{keyword}</span>
-            <span className="bg-green-500 text-white px-2 py-0.5 rounded font-bold">#1</span>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function ContentDemo({ active }: { active: boolean }) {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (active) {
-      const interval = setInterval(() => {
-        setProgress((prev) => (prev >= 100 ? 0 : prev + 10));
-      }, 200);
-      return () => clearInterval(interval);
-    }
-  }, [active]);
-
-  return (
-    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-      <div className="flex items-center gap-2 mb-3">
-        <div className={`w-2 h-2 rounded-full ${active ? 'bg-green-500 animate-pulse' : 'bg-gray-300'}`}></div>
-        <span className="text-xs font-semibold text-gray-700">AI Writing...</span>
-      </div>
-      <div className="space-y-1">
-        <div className="h-2 bg-gray-200 rounded" style={{ width: `${Math.min(progress, 100)}%` }}></div>
-        <div className="h-2 bg-gray-200 rounded" style={{ width: `${Math.max(0, Math.min(progress - 20, 100))}%` }}></div>
-        <div className="h-2 bg-gray-200 rounded" style={{ width: `${Math.max(0, Math.min(progress - 40, 100))}%` }}></div>
-      </div>
-      {progress >= 100 && (
-        <div className="mt-3 bg-green-50 border border-green-200 rounded px-2 py-1">
-          <p className="text-xs text-green-800 font-semibold">✓ +300% traffic boost!</p>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function TechnicalDemo({ active }: { active: boolean }) {
-  const [scanning, setScanning] = useState(false);
-  const [fixed, setFixed] = useState(false);
-
-  useEffect(() => {
-    if (active && !scanning) {
-      setScanning(true);
-      setFixed(false);
-      setTimeout(() => setFixed(true), 1500);
-      setTimeout(() => {
-        setScanning(false);
-        setFixed(false);
-      }, 3000);
-    }
-  }, [active]);
-
-  return (
-    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-      <div className="flex items-center justify-between mb-2">
-        <span className="text-xs font-semibold text-gray-700">Core Web Vitals</span>
-        {scanning && <Zap className="h-4 w-4 text-yellow-500 animate-pulse" />}
-      </div>
-      <div className="space-y-2">
-        <div className={`flex items-center justify-between text-xs p-2 rounded ${fixed ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-          <span>Speed</span>
-          <span className={`font-bold ${fixed ? 'text-green-600' : 'text-red-600'}`}>
-            {fixed ? '100' : '45'}
-          </span>
-        </div>
-        <div className={`flex items-center justify-between text-xs p-2 rounded ${fixed ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-          <span>SEO</span>
-          <span className={`font-bold ${fixed ? 'text-green-600' : 'text-red-600'}`}>
-            {fixed ? '100' : '62'}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function LocalMapDemo({ active }: { active: boolean }) {
-  const [stars, setStars] = useState(3);
-
-  useEffect(() => {
-    if (active) {
-      const interval = setInterval(() => {
-        setStars((prev) => (prev >= 5 ? 3 : prev + 1));
-      }, 800);
-      return () => clearInterval(interval);
-    }
-  }, [active]);
-
-  return (
-    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-      <div className="flex items-center gap-2 mb-3">
-        <MapPin className="h-4 w-4 text-red-500" />
-        <span className="text-xs font-semibold text-gray-700">Local Area</span>
-      </div>
-      <div className="bg-white rounded p-2 border border-gray-200">
-        <div className="flex items-center gap-1 mb-1">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              className={`h-3 w-3 ${i < stars ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
-            />
-          ))}
-        </div>
-        <p className="text-xs text-gray-600">{stars} star reviews</p>
-      </div>
-    </div>
   );
 }
