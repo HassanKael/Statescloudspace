@@ -114,10 +114,10 @@ export default function Contact() {
               <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
 
               {status === 'success' && (
-                <div className="mb-6 p-4 bg-secondary/10 border border-secondary rounded-lg flex items-start">
-                  <CheckCircle className="h-5 w-5 text-secondary mr-3 flex-shrink-0 mt-0.5" />
+                <div className="mb-6 p-4 bg-[#5046e5]/10 border border-[#5046e5] rounded-lg flex items-start">
+                  <CheckCircle className="h-5 w-5 text-[#5046e5] mr-3 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-secondary">Message sent successfully!</p>
+                    <p className="font-semibold text-[#5046e5]">Message sent successfully!</p>
                     <p className="text-sm text-neutral-700">
                       We'll get back to you within 24-48 hours.
                     </p>
@@ -148,7 +148,7 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all"
                     />
                   </div>
 
@@ -162,7 +162,7 @@ export default function Contact() {
                       name="business_name"
                       value={formData.business_name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -179,7 +179,7 @@ export default function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all"
                     />
                   </div>
 
@@ -193,7 +193,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export default function Contact() {
                     value={formData.website}
                     onChange={handleChange}
                     placeholder="https://"
-                    className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all"
                   />
                 </div>
 
@@ -224,7 +224,7 @@ export default function Contact() {
                       required
                       value={formData.service_interest}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all bg-white"
+                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all bg-white"
                     >
                       <option value="">Select a service</option>
                       <option value="Graphic Design">Graphic Design</option>
@@ -245,7 +245,7 @@ export default function Contact() {
                       name="monthly_budget"
                       value={formData.monthly_budget}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all bg-white"
+                      className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all bg-white"
                     >
                       <option value="">Select budget range</option>
                       <option value="Less than $500">Less than $500</option>
@@ -269,16 +269,17 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="What are your goals? What challenges are you facing? How can we help?"
-                    className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all resize-none"
+                    className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#5046e5] focus:border-transparent outline-none transition-all resize-none"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  variant="accent"
+                  variant="primary"
                   size="lg"
                   fullWidth
                   disabled={status === 'loading'}
+                  className="bg-[#5046e5] hover:bg-[#4039c9] text-white"
                 >
                   {status === 'loading' ? 'Sending...' : 'Send Message'}
                 </Button>
@@ -293,15 +294,15 @@ export default function Contact() {
                 {contactInfo.map((info) => (
                   <Card key={info.title} padding="md">
                     <div className="flex items-start">
-                      <div className="bg-secondary/10 rounded-full p-3 mr-4">
-                        <info.icon className="h-5 w-5 text-secondary" />
+                      <div className="bg-[#5046e5]/10 rounded-full p-3 mr-4">
+                        <info.icon className="h-5 w-5 text-[#5046e5]" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-primary mb-1">{info.title}</h3>
+                        <h3 className="font-semibold text-[#1A3263] mb-1">{info.title}</h3>
                         {info.link ? (
                           <a
                             href={info.link}
-                            className="text-neutral-700 hover:text-secondary transition-colors"
+                            className="text-neutral-700 hover:text-[#5046e5] transition-colors"
                             target={info.link.startsWith('http') ? '_blank' : undefined}
                             rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >
@@ -320,7 +321,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <Card padding="lg" className="bg-gradient-to-br from-secondary/10 to-primary/10">
+            <Card padding="lg" className="bg-gradient-to-br from-[#5046e5]/10 to-[#1A3263]/10">
               <h3 className="font-bold text-lg mb-3">Prefer to chat?</h3>
               <p className="text-neutral-700 mb-4">
                 Get instant responses to your questions on WhatsApp.
@@ -328,9 +329,10 @@ export default function Contact() {
               <Button
                 href="https://wa.me/your-number"
                 external
-                variant="secondary"
+                variant="primary"
                 size="md"
                 fullWidth
+                className="bg-[#25D366] hover:bg-[#20BD5A] text-white"
               >
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Start WhatsApp Chat
