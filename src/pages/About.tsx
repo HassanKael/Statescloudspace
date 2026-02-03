@@ -58,7 +58,7 @@ export default function About() {
     <>
       <Section background="primary" padding="xl">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Statescloudspace</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">About Statescloudspace</h1>
           <p className="text-lg text-neutral-100">
             We're a digital marketing partner on a mission to help businesses turn online
             activity into real revenue.
@@ -170,14 +170,14 @@ export default function About() {
 
       <Section background="primary" padding="xl">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             Let's Talk About Your Next Stage of Growth
           </h2>
           <p className="text-lg text-neutral-100 mb-8">
             Whether you're just starting out or ready to scale, we're here to help you build
             a marketing system that delivers real results.
           </p>
-          <Button href="/contact" variant="accent" size="lg">
+          <Button href="/contact" size="lg" className="!bg-white !text-black hover:!bg-neutral-100">
             Book a Free Strategy Call
           </Button>
         </div>
