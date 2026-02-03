@@ -143,25 +143,25 @@ export default function SEO() {
 
   const testimonials = [
     {
-      name: 'Sarah Mitchell',
-      company: 'Mitchell & Co.',
-      role: 'CEO',
-      content: 'Our organic traffic tripled in just four months. The team\'s expertise in both technical SEO and content strategy has been invaluable.',
-      results: { traffic: '+340%', leads: '+180%', revenue: '$240K' }
+      name: 'John Kimeu',
+      company: 'Kimeu Enterprises',
+      role: 'Entrepreneur',
+      content: 'Our organic traffic tripled in just four months. Their expertise in both technical SEO and content strategy has been invaluable for growing our business in Nairobi and beyond.',
+      results: { traffic: '+340%', leads: '+180%', revenue: 'KSh 24M' }
     },
     {
-      name: 'James Rodriguez',
-      company: 'TechStart Solutions',
-      role: 'Marketing Director',
-      content: 'Finally, an SEO agency that delivers what they promise. Rankings improved, qualified leads increased, and our ROI has been exceptional.',
-      results: { traffic: '+280%', leads: '+220%', revenue: '$310K' }
+      name: 'Amina Hassan',
+      company: 'Hassan Digital Solutions',
+      role: 'Digital Marketer',
+      content: 'Finally, an SEO agency that delivers what they promise. Our rankings improved across Kenya, qualified leads increased significantly, and the ROI has been exceptional for our clients.',
+      results: { traffic: '+280%', leads: '+220%', revenue: 'KSh 31M' }
     },
     {
-      name: 'Emily Chen',
-      company: 'Urban Design Studio',
-      role: 'Founder',
-      content: 'The difference was night and day. Within 90 days we were ranking for competitive keywords we never thought possible.',
-      results: { traffic: '+195%', leads: '+160%', revenue: '$180K' }
+      name: 'Esther Wanjiku',
+      company: 'Wanjiku Online Store',
+      role: 'E-commerce Specialist',
+      content: 'The difference was night and day. Within 90 days we were ranking for competitive e-commerce keywords in the Kenyan market that we never thought possible.',
+      results: { traffic: '+195%', leads: '+160%', revenue: 'KSh 18M' }
     }
   ];
 
