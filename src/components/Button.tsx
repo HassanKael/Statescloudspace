@@ -23,9 +23,9 @@ export default function Button({
   const baseStyles = 'font-bold rounded-lg transition-all duration-300 ease-in-out inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md hover:shadow-lg';
 
   const variantStyles = {
-    primary: 'bg-primary text-white hover:bg-white hover:text-black border-2 border-primary focus:ring-primary',
-    secondary: 'bg-secondary text-white hover:bg-secondary-dark focus:ring-secondary',
-    outline: 'bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary',
+    primary: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent border-2 border-accent hover:border-accent-dark',
+    secondary: 'bg-primary text-white hover:bg-primary-dark focus:ring-primary',
+    outline: 'bg-white border-2 border-primary text-primary hover:bg-accent hover:text-white hover:border-accent focus:ring-accent',
     accent: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent',
   };
 

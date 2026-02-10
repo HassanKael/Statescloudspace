@@ -317,7 +317,7 @@ export default function SEO() {
                       <ul className="space-y-4 mb-8">
                         {service.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <CheckCircle className="h-6 w-6 text-[#5046e5] mr-3 flex-shrink-0 mt-1" />
+                            <CheckCircle className="h-6 w-6 text-[#F26419] mr-3 flex-shrink-0 mt-1" />
                             <span className="text-gray-800 text-base font-medium">{feature}</span>
                           </li>
                         ))}
@@ -326,7 +326,7 @@ export default function SEO() {
                         href="/contact"
                         variant="primary"
                         size="lg"
-                        className="bg-[#5046e5] hover:bg-[#4039c9] text-white px-8 py-3 inline-flex items-center"
+                        className="bg-[#F26419] hover:bg-[#D15614] text-white px-8 py-3 inline-flex items-center"
                       >
                         Learn More
                         <ArrowRight className="ml-2 h-5 w-5" />
@@ -352,7 +352,7 @@ export default function SEO() {
                       <ul className="space-y-4 mb-8">
                         {service.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <CheckCircle className="h-6 w-6 text-[#5046e5] mr-3 flex-shrink-0 mt-1" />
+                            <CheckCircle className="h-6 w-6 text-[#F26419] mr-3 flex-shrink-0 mt-1" />
                             <span className="text-gray-800 text-base font-medium">{feature}</span>
                           </li>
                         ))}
@@ -361,7 +361,7 @@ export default function SEO() {
                         href="/contact"
                         variant="primary"
                         size="lg"
-                        className="bg-[#5046e5] hover:bg-[#4039c9] text-white px-8 py-3 inline-flex items-center"
+                        className="bg-[#F26419] hover:bg-[#D15614] text-white px-8 py-3 inline-flex items-center"
                       >
                         Learn More
                         <ArrowRight className="ml-2 h-5 w-5" />
@@ -405,14 +405,14 @@ export default function SEO() {
             {processSteps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full">
-                  <div className="bg-[#5046e5]/10 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
-                    <span className="text-3xl font-black text-[#5046e5]">{step.number}</span>
+                  <div className="bg-[#F26419]/10 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                    <span className="text-3xl font-black text-[#F26419]">{step.number}</span>
                   </div>
                   <h3 className="text-lg font-bold text-center mb-3 text-black">{step.title}</h3>
                   <p className="text-sm text-gray-600 text-center leading-relaxed">{step.description}</p>
                 </div>
                 {index < processSteps.length - 1 && (
-                  <ArrowRight className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 h-6 w-6 text-[#5046e5] z-10" />
+                  <ArrowRight className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 h-6 w-6 text-[#F26419] z-10" />
                 )}
               </div>
             ))}
@@ -521,7 +521,7 @@ export default function SEO() {
                 >
                   <h3 className="text-lg font-bold text-black pr-8">{faq.question}</h3>
                   <ChevronDown
-                    className={`h-6 w-6 text-[#5046e5] flex-shrink-0 transition-transform duration-300 ${
+                    className={`h-6 w-6 text-[#F26419] flex-shrink-0 transition-transform duration-300 ${
                       openFAQ === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -559,7 +559,7 @@ export default function SEO() {
                 href="/contact"
                 variant="outline"
                 size="lg"
-                className="bg-white text-[#1A3263] border-white hover:bg-[#5046e5] hover:text-white text-lg px-10 py-5"
+                className="bg-white text-[#1A3263] border-white hover:bg-[#F26419] hover:text-white text-lg px-10 py-5"
               >
                 Get Your Free SEO Audit
               </Button>
