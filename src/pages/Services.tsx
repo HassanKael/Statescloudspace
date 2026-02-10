@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, TrendingUp, Target, Users, Zap, FileText } from 'lucide-react';
+import { ArrowRight, Sparkles, TrendingUp, Target, Users, Zap, FileText, Monitor } from 'lucide-react';
 import Section from '../components/Section';
 import Button from '../components/Button';
 import Card from '../components/Card';
@@ -117,6 +117,16 @@ export default function Services() {
       stat: '500%',
       statLabel: 'Traffic Growth',
       path: '/services/content-marketing',
+    },
+    {
+      id: 'web-design',
+      name: 'Web Design',
+      icon: Monitor,
+      image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800',
+      summary: 'Transform clicks into customers with modern, high-performing websites that work as your 24/7 salesperson. From intuitive UI/UX to conversion-driven design, we build responsive, secure, and SEO-ready websites that drive real business results.',
+      stat: '350%',
+      statLabel: 'Conversion Rate Increase',
+      path: '/services/web-design',
     },
   ];
 

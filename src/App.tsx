@@ -14,6 +14,7 @@ import PaidAds from './pages/services/PaidAds';
 import SocialMediaManagement from './pages/services/SocialMediaManagement';
 import AIAutomation from './pages/services/AIAutomation';
 import ContentMarketing from './pages/services/ContentMarketing';
+import WebDesign from './pages/services/WebDesign';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/services/social-media-management" element={<SocialMediaManagement />} />
             <Route path="/services/ai-automation" element={<AIAutomation />} />
             <Route path="/services/content-marketing" element={<ContentMarketing />} />
+            <Route path="/services/web-design" element={<WebDesign />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
