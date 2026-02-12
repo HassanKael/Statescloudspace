@@ -58,8 +58,8 @@ export default function About() {
     <>
       <Section background="primary" padding="xl">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">About Statescloudspace</h1>
-          <p className="text-lg text-neutral-100">
+          <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold mb-6 text-white">About Statescloudspace</h1>
+          <p className="text-base md:text-lg text-neutral-100">
             We're a digital marketing partner on a mission to help businesses turn online
             activity into real revenue.
           </p>

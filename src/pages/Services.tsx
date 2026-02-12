@@ -193,10 +193,10 @@ export default function Services() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl text-center">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-6 leading-[1.1] animate-fade-in">
-            Services That Drive Sales
+          <h1 className="text-[2.5rem] md:text-[3.5rem] font-black text-white mb-6 leading-[1.15] md:leading-[1.1] animate-fade-in">
+            Services that drive sales
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fade-in-delay">
+          <p className="text-lg md:text-xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fade-in-delay">
             Each service is built around business growth, not vanity metrics. We focus on
             what actually moves the needle: leads, conversions, and revenue.
           </p>
@@ -286,9 +286,9 @@ export default function Services() {
                     to={service.path}
                     className="block mb-4 group/link"
                   >
-                    <h2 className="text-2xl font-bold text-black group-hover/link:text-[#1A3263] transition-all duration-300 group-hover/link:drop-shadow-[0_0_8px_rgba(26,50,99,0.5)]">
+                    <h3 className="text-[1.5rem] md:text-[2rem] font-bold text-black group-hover/link:text-[#1A3263] transition-all duration-300 group-hover/link:drop-shadow-[0_0_8px_rgba(26,50,99,0.5)]">
                       {service.name}
-                    </h2>
+                    </h3>
                   </Link>
 
                   <p className="text-gray-700 leading-relaxed mb-6">
@@ -312,10 +312,10 @@ export default function Services() {
 
       <Section background="gray" padding="xl">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-black">
-            Ready to Transform Your Marketing?
+          <h2 className="text-[2rem] md:text-[2.75rem] font-bold mb-6 text-black">
+            Ready to transform your marketing?
           </h2>
-          <p className="text-xl text-gray-700 mb-10 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 mb-10 leading-relaxed">
             Tell us what you want to achieve and we'll map out the best strategy for your business.
           </p>
           <Button href="/contact" variant="primary" size="lg" className="text-lg px-10 py-5 animate-pulse-slow-subtle">

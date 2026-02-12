@@ -99,8 +99,8 @@ export default function Contact() {
     <>
       <Section background="primary" padding="xl">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Contact Statescloudspace</h1>
-          <p className="text-lg text-white">
+          <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold mb-6 text-white">Contact Statescloudspace</h1>
+          <p className="text-base md:text-lg text-white">
             Tell us about your business and what you want to achieve. We'll get back to you
             within 24–48 hours.
           </p>

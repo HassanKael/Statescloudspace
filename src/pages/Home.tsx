@@ -185,11 +185,11 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.2] mb-8 text-white">
-              Turn Clicks Into Customers With Data-Driven Marketing
+            <h1 className="text-[2.5rem] md:text-[3.5rem] font-bold leading-[1.15] md:leading-[1.1] mb-8 text-white">
+              Turn clicks into customers with data-driven marketing
             </h1>
 
-            <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed mb-10 text-white/95 max-w-3xl">
+            <p className="text-lg md:text-xl leading-relaxed mb-10 text-white/95 max-w-3xl">
               Design, automate, and scale campaigns that bring in real sales, not just traffic.
             </p>
 
@@ -396,10 +396,10 @@ export default function Home() {
                 Success Stories
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6">
-              Our Success Stories
+            <h2 className="text-[2rem] md:text-[2.75rem] font-black text-white mb-6">
+              Our success stories
             </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
               Explore how we transformed businesses and digital experiences across Kenya
             </p>
           </div>
@@ -607,10 +607,10 @@ export default function Home() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
           </div>
           <div className="relative z-10">
-            <h2 className="text-white mb-6 text-3xl md:text-4xl lg:text-5xl">
-              Ready to Turn Your Marketing Into a Sales Engine?
+            <h2 className="text-white mb-6 text-[2rem] md:text-[2.75rem]">
+              Ready to turn your marketing into a sales engine?
             </h2>
-            <p className="text-xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed">
               Let's build a growth strategy that actually delivers results. Book your free
               consultation today.
             </p>
