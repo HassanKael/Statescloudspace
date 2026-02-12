@@ -8,6 +8,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import ServicesDropdownDemo from './pages/ServicesDropdownDemo';
 import GraphicDesign from './pages/services/GraphicDesign';
 import SEO from './pages/services/SEO';
 import PaidAds from './pages/services/PaidAds';
@@ -26,6 +27,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services-dropdown" element={<ServicesDropdownDemo />} />
             <Route path="/services/graphic-design" element={<GraphicDesign />} />
             <Route path="/services/seo" element={<SEO />} />
             <Route path="/services/paid-ads" element={<PaidAds />} />

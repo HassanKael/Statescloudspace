@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services Dropdown - Modern Marketing Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 1rem;
+    }
+
+    .header p {
+      font-size: 1.125rem;
+      color: #6b7280;
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .header h1 {
+        font-size: 3rem;
+      }
+    }
+
+    .service-item {
+      position: relative;
+    }
+
+    .service-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: white;
+      border: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-height: 60px;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .service-trigger:hover {
+      background: #1A3263;
+      color: white;
+      box-shadow: 0 10px 25px rgba(26, 50, 99, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .service-trigger.active {
+      background: #1A3263;
+      color: white;
+      border-left: 4px solid #1A3263;
+    }
+
+    .service-trigger:focus {
+      outline: 2px solid #1A3263;
+      outline-offset: 2px;
+    }
+
+    @media (min-width: 768px) {
+      .service-trigger {
+        min-height: 72px;
+      }
+    }
+
+    .service-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .service-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    .arrow-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      margin-left: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .service-trigger.active .arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    .service-trigger:hover .arrow-icon {
+      color: white;
+    }
+
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-content.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .dropdown-inner {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e7eb;
+      padding: 1rem;
+    }
+
+    .service-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    .service-link:hover {
+      background: #f9fafb;
+    }
+
+    .service-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: rgba(26, 50, 99, 0.1);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .service-link:hover .service-icon {
+      background: #1A3263;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      color: #1A3263;
+      transition: color 0.3s ease;
+    }
+
+    .service-link:hover .service-icon svg {
+      color: white;
+    }
+
+    .service-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .service-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.25rem;
+      transition: color 0.2s ease;
+    }
+
+    .service-link:hover .service-name {
+      color: #1A3263;
+    }
+
+    @media (min-width: 768px) {
+      .service-name {
+        font-size: 1.125rem;
+      }
+    }
+
+    .service-desc {
+      font-size: 0.875rem;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .demo-banner {
+      background: linear-gradient(135deg, #1A3263 0%, #0f1f40 100%);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      border-radius: 0.75rem;
+    }
+
+    .demo-banner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .demo-banner p {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (min-width: 768px) {
+      .demo-banner h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .service-trigger,
+      .service-link {
+        min-height: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="demo-banner">
+      <h2>Fully Responsive Services Dropdown</h2>
+      <p>Click to explore our services - One dropdown at a time, smooth animations, keyboard accessible</p>
+    </div>
+
+    <div class="header">
+      <h1>Our Services</h1>
+      <p>Comprehensive solutions designed to grow your business and maximize your ROI</p>
+    </div>
+
+    <div class="services-grid" id="servicesGrid">
+      <!-- Services will be rendered here by JavaScript -->
+    </div>
+  </div>
+
+  <script>
+    const services = [
+      {
+        id: 'creative-design',
+        title: 'Creative & Design',
+        items: [
+          {
+            name: 'Graphic Design',
+            description: 'Stunning visuals that capture attention and drive engagement',
+            path: '/services/graphic-design',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`
+          },
+          {
+            name: 'Web Design',
+            description: 'High-converting websites that work as your 24/7 salesperson',
+            path: '/services/web-design',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`
+          }
+        ]
+      },
+      {
+        id: 'digital-marketing',
+        title: 'Digital Marketing',
+        items: [
+          {
+            name: 'SEO',
+            description: 'Dominate search rankings and attract high-intent buyers',
+            path: '/services/seo',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`
+          },
+          {
+            name: 'Paid Ads',
+            description: 'High-performing campaigns that deliver measurable ROI',
+            path: '/services/paid-ads',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>`
+          }
+        ]
+      },
+      {
+        id: 'social-media',
+        title: 'Social Media',
+        items: [
+          {
+            name: 'Social Media Management',
+            description: 'Build your brand presence across all major platforms',
+            path: '/services/social-media-management',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`
+          }
+        ]
+      },
+      {
+        id: 'content',
+        title: 'Content Marketing',
+        items: [
+          {
+            name: 'Content Marketing',
+            description: 'Strategic content that educates and converts prospects',
+            path: '/services/content-marketing',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`
+          }
+        ]
+      },
+      {
+        id: 'automation',
+        title: 'AI & Automation',
+        items: [
+          {
+            name: 'AI Automation',
+            description: 'Streamline operations with cutting-edge AI solutions',
+            path: '/services/ai-automation',
+            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`
+          }
+        ]
+      }
+    ];
+
+    let currentOpenId = null;
+
+    function renderServices() {
+      const grid = document.getElementById('servicesGrid');
+
+      grid.innerHTML = services.map(category => `
+        <div class="service-item">
+          <button
+            class="service-trigger"
+            onclick="toggleDropdown('${category.id}')"
+            onkeydown="handleKeyPress(event, '${category.id}')"
+            aria-expanded="false"
+            aria-controls="dropdown-${category.id}"
+            id="trigger-${category.id}"
+          >
+            <span class="service-title">${category.title}</span>
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#1A3263">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="dropdown-content" id="dropdown-${category.id}">
+            <div class="dropdown-inner">
+              ${category.items.map(item => `
+                <a href="${item.path}" class="service-link">
+                  <div class="service-icon">
+                    ${item.icon}
+                  </div>
+                  <div class="service-info">
+                    <div class="service-name">${item.name}</div>
+                    <div class="service-desc">${item.description}</div>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleDropdown(categoryId) {
+      const dropdown = document.getElementById(`dropdown-${categoryId}`);
+      const trigger = document.getElementById(`trigger-${categoryId}`);
+      const isOpen = dropdown.classList.contains('open');
+
+      if (currentOpenId && currentOpenId !== categoryId) {
+        const prevDropdown = document.getElementById(`dropdown-${currentOpenId}`);
+        const prevTrigger = document.getElementById(`trigger-${currentOpenId}`);
+        prevDropdown.classList.remove('open');
+        prevTrigger.classList.remove('active');
+        prevTrigger.setAttribute('aria-expanded', 'false');
+      }
+
+      if (isOpen) {
+        dropdown.classList.remove('open');
+        trigger.classList.remove('active');
+        trigger.setAttribute('aria-expanded', 'false');
+        currentOpenId = null;
+      } else {
+        dropdown.classList.add('open');
+        trigger.classList.add('active');
+        trigger.setAttribute('aria-expanded', 'true');
+        currentOpenId = categoryId;
+      }
+    }
+
+    function handleKeyPress(event, categoryId) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleDropdown(categoryId);
+      }
+    }
+
+    document.addEventListener('click', function(event) {
+      const isClickInside = event.target.closest('.service-item');
+      if (!isClickInside && currentOpenId) {
+        const dropdown = document.getElementById(`dropdown-${currentOpenId}`);
+        const trigger = document.getElementById(`trigger-${currentOpenId}`);
+        dropdown.classList.remove('open');
+        trigger.classList.remove('active');
+        trigger.setAttribute('aria-expanded', 'false');
+        currentOpenId = null;
+      }
+    });
+
+    renderServices();
+  </script>
+</body>
+</html>
