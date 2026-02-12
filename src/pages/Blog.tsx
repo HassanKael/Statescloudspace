@@ -47,8 +47,8 @@ export default function Blog() {
     <>
       <Section background="primary" padding="xl">
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Digital Growth Insights</h1>
-          <p className="text-lg text-neutral-100">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Digital Growth Insights</h1>
+          <p className="text-lg text-white">
             Simple, practical tips on how to get more leads and sales online.
           </p>
         </div>
