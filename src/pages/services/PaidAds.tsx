@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Target, DollarSign, Zap } from 'lucide-react';
+import { CheckCircle, ArrowRight, Target, DollarSign, Zap, TrendingUp, Play } from 'lucide-react';
 import Section from '../../components/Section';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
@@ -25,9 +25,33 @@ export default function PaidAds() {
       description: 'Highly targeted social campaigns that capture attention and drive action.',
     },
     {
+      icon: Play,
+      title: 'TikTok Lead Generation',
+      description: 'Viral-ready campaigns leveraging trending audio and native content for explosive engagement.',
+    },
+    {
       icon: DollarSign,
       title: 'ROI-Focused Optimization',
       description: 'Continuous testing and refinement to maximize return on ad spend.',
+    },
+  ];
+
+  const tiktokTactics = [
+    {
+      title: 'Trend-Jacking Blueprints',
+      description: 'Reverse-engineer top-performing UGC, remix into shoppable ads with TikTok Shop tags for direct conversions.',
+    },
+    {
+      title: 'Lead Form Automation',
+      description: 'Instant opt-ins via TikTok Lead Generation ads, auto-synced to your CRM with zero manual entry.',
+    },
+    {
+      title: 'Hyper-Targeted Scaling',
+      description: 'Custom audiences from video completers + interest layering, retargeting warm viewers at 50% lower CPC.',
+    },
+    {
+      title: 'Performance Dashboard',
+      description: 'Real-time metrics on leads generated, cost-per-lead, and viral coefficient—optimized daily by our ad ops team.',
     },
   ];
 
@@ -65,7 +89,7 @@ export default function PaidAds() {
               Paid Ads
             </h1>
             <p className="text-xl md:text-2xl text-white/95 leading-relaxed mb-10">
-              Launch high-performing campaigns on Google and Meta that deliver measurable ROI. We optimize every dollar spent with precision targeting and continuous performance monitoring.
+              Launch high-performing campaigns on Google, Meta, and TikTok that deliver measurable ROI. We optimize every dollar spent with precision targeting and continuous performance monitoring.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button href="/contact" variant="primary" size="lg" className="text-lg px-10 py-5">
@@ -89,7 +113,7 @@ export default function PaidAds() {
             <p className="text-xl text-gray-600">Full-service paid advertising management for maximum ROI</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {features.map((feature) => (
               <Card key={feature.title} padding="lg" hover>
                 <div className="bg-[#1A3263]/5 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
@@ -116,6 +140,55 @@ export default function PaidAds() {
       </Section>
 
       <Section background="gray" padding="xl">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-3 mb-6 bg-[#1A3263]/5 px-4 py-2 rounded-full">
+                <Play className="h-5 w-5 text-[#1A3263]" />
+                <span className="text-[#1A3263] font-semibold text-sm tracking-wider uppercase">TikTok Advertising</span>
+              </div>
+              <h3 className="text-[2rem] font-bold text-black mb-6">
+                From viral hooks to closed deals: TikTok lead engine
+              </h3>
+              <p className="text-base text-gray-700 leading-relaxed mb-8">
+                We dive deep into your brand's DNA to produce native Spark Ads and Branded Effects that feel authentically TikTok—leveraging trending audio, duets, and AR challenges to achieve 90%+ view-through rates and 3x engagement over static feeds. Our proprietary creative process A/B tests 15+ variations weekly, using pixel data and lookalike audiences to target dream buyers (e.g., 18-34yo impulse purchasers), while dynamic event optimizations trigger instant lead forms for email/SMS capture.
+              </p>
+              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-8">
+                <p className="text-base text-gray-800 leading-relaxed font-medium">
+                  <strong className="text-[#1A3263]">Results?</strong> Businesses see <strong className="text-[#1A3263]">4-7x ROAS</strong>, with top funnels feeding 24/7 AI chatbots for qualification—turning passive scrollers into booked calls overnight. Seamless integrations with your existing Meta/Google campaigns ensure cross-platform synergy.
+                </p>
+              </div>
+              <Button href="/contact" variant="primary" size="lg" className="text-base px-8 py-4">
+                Generate TikTok Leads Now
+              </Button>
+            </div>
+
+            <div className="relative">
+              <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-8 shadow-2xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl">
+                    <TrendingUp className="h-8 w-8 text-white" />
+                  </div>
+                  <h4 className="text-xl font-bold text-white">Key Tactics We Deploy</h4>
+                </div>
+                <div className="space-y-6">
+                  {tiktokTactics.map((tactic, index) => (
+                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                      <h5 className="text-base font-bold text-white mb-2">{tactic.title}</h5>
+                      <p className="text-sm text-white/80 leading-relaxed">{tactic.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="absolute -top-4 -right-4 bg-[#1A3263] text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg animate-pulse">
+                90%+ View Rate
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="white" padding="xl">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Success Story</h2>
