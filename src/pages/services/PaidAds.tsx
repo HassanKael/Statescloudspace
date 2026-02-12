@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Target, DollarSign, Zap, TrendingUp, Play } from 'lucide-react';
+import { CheckCircle, ArrowRight, Target, DollarSign, Zap, TrendingUp, Play, Search, Users, BarChart3, Megaphone } from 'lucide-react';
 import Section from '../../components/Section';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
@@ -11,6 +11,100 @@ export default function PaidAds() {
     'Track every dollar spent with detailed conversion analytics',
     'Reach decision-makers at the exact moment they\'re ready to buy',
     'Test and iterate rapidly to find winning combinations',
+  ];
+
+  const googleSteps = [
+    {
+      title: 'Keyword Strategy',
+      description: 'Deep-dive research to find high-intent "buying" keywords while excluding negative keywords to prevent wasted spend.',
+    },
+    {
+      title: 'Campaign Architecture',
+      description: 'Tightly themed ad groups—Search for text, Shopping for e-commerce, or Display for visual retargeting.',
+    },
+    {
+      title: 'Compelling Ad Copy',
+      description: 'Multiple headlines and descriptions to improve Quality Score, lowering your cost-per-click (CPC).',
+    },
+    {
+      title: 'Landing Page Alignment',
+      description: 'Ensure ads lead to high-converting pages that match the user\'s search query.',
+    },
+    {
+      title: 'Smart Bidding & Tracking',
+      description: 'Conversion tracking feeds Google\'s AI, automating bidding for the highest possible ROI.',
+    },
+  ];
+
+  const googleBenefits = [
+    {
+      title: 'Instant Visibility',
+      description: 'Unlike SEO, your brand appears at the top of Google results immediately.',
+    },
+    {
+      title: 'High Intent',
+      description: 'Reach people who are already looking to buy, not just browsing.',
+    },
+    {
+      title: 'Pay-for-Performance',
+      description: 'Only pay when someone actually clicks on your ad.',
+    },
+  ];
+
+  const metaSteps = [
+    {
+      title: 'Audience Profiling',
+      description: 'Build Custom and Lookalike audiences based on your best customers\' interests, behaviors, and locations.',
+    },
+    {
+      title: 'Creative Production',
+      description: 'Mobile-first visuals (Reels, Carousels, Single Images) that stop the thumb and spark curiosity.',
+    },
+    {
+      title: 'Funnel Strategy',
+      description: 'Top of Funnel (Awareness) and Bottom of Funnel (Retargeting for cart abandoners).',
+    },
+    {
+      title: 'Pixel & CAPI Setup',
+      description: 'Install Meta Pixel and Conversions API to track user actions across devices accurately.',
+    },
+    {
+      title: 'A/B Testing',
+      description: 'Constantly test different headlines and videos to double down on what generates the most leads.',
+    },
+  ];
+
+  const metaBenefits = [
+    {
+      title: 'Laser Targeting',
+      description: 'Reach users based on hobbies, job titles, or life events like "Recently Moved" or "Interested in Luxury Travel".',
+    },
+    {
+      title: 'Visual Storytelling',
+      description: 'Use Instagram Reels and Stories to build an emotional connection with your brand.',
+    },
+    {
+      title: 'Cost-Effective Reach',
+      description: 'Lower cost-per-impression compared to other major networks.',
+    },
+  ];
+
+  const optimizationFeatures = [
+    {
+      icon: BarChart3,
+      title: 'Data-Driven Decisions',
+      description: 'Real-time analytics to cut underperforming ads and scale the winners.',
+    },
+    {
+      icon: DollarSign,
+      title: 'Budget Efficiency',
+      description: 'Decrease your Cost Per Acquisition (CPA) month over month.',
+    },
+    {
+      icon: Target,
+      title: 'Transparent Reporting',
+      description: 'Clear dashboards showing exactly how many leads or sales your investment generated.',
+    },
   ];
 
   const features = [
@@ -141,6 +235,154 @@ export default function PaidAds() {
 
       <Section background="gray" padding="xl">
         <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-6 bg-white px-4 py-2 rounded-full shadow-sm">
+              <Search className="h-5 w-5 text-[#1A3263]" />
+              <span className="text-[#1A3263] font-semibold text-sm tracking-wider uppercase">Google Ads</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Google Ads Management</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Search, Display, & Shopping Campaigns
+            </p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto mt-4">
+              Google Ads focuses on intent. We place your business in front of customers at the exact moment they are searching for what you offer.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <div className="bg-[#1A3263]/10 p-2 rounded-lg">
+                  <Target className="h-6 w-6 text-[#1A3263]" />
+                </div>
+                Our Process
+              </h3>
+              <div className="space-y-4">
+                {googleSteps.map((step, index) => (
+                  <div key={index} className="border-l-4 border-[#1A3263] pl-4">
+                    <h4 className="font-bold text-gray-900 mb-1">{step.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-8 shadow-lg text-white">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-white" />
+                </div>
+                Core Benefits
+              </h3>
+              <div className="space-y-6">
+                {googleBenefits.map((benefit, index) => (
+                  <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                    <h4 className="font-bold text-white mb-2">{benefit.title}</h4>
+                    <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="white" padding="xl">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-6 bg-[#1A3263]/5 px-4 py-2 rounded-full">
+              <Users className="h-5 w-5 text-[#1A3263]" />
+              <span className="text-[#1A3263] font-semibold text-sm tracking-wider uppercase">Meta Advertising</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Meta Ads</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Facebook & Instagram Highly Targeted Social Campaigns
+            </p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto mt-4">
+              Meta Ads focus on demographics and behavior. We interrupt the "scroll" with eye-catching content tailored to specific lifestyles.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-8 shadow-lg text-white order-2 md:order-1">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg">
+                  <CheckCircle className="h-6 w-6 text-white" />
+                </div>
+                Core Benefits
+              </h3>
+              <div className="space-y-6">
+                {metaBenefits.map((benefit, index) => (
+                  <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                    <h4 className="font-bold text-white mb-2">{benefit.title}</h4>
+                    <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg order-1 md:order-2">
+              <h3 className="text-2xl font-bold text-black mb-6 flex items-center gap-3">
+                <div className="bg-[#1A3263]/10 p-2 rounded-lg">
+                  <Zap className="h-6 w-6 text-[#1A3263]" />
+                </div>
+                Our Process
+              </h3>
+              <div className="space-y-4">
+                {metaSteps.map((step, index) => (
+                  <div key={index} className="border-l-4 border-[#1A3263] pl-4">
+                    <h4 className="font-bold text-gray-900 mb-1">{step.title}</h4>
+                    <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="gray" padding="xl">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-6 bg-white px-4 py-2 rounded-full shadow-sm">
+              <TrendingUp className="h-5 w-5 text-[#1A3263]" />
+              <span className="text-[#1A3263] font-semibold text-sm tracking-wider uppercase">Our Advantage</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">ROI-Focused Optimization</h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              We don't just "set and forget." Our management style is rooted in Continuous Testing and Refinement.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {optimizationFeatures.map((feature, index) => (
+              <Card key={index} padding="lg" hover>
+                <div className="bg-[#1A3263]/5 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                  <feature.icon className="h-8 w-8 text-[#1A3263]" />
+                </div>
+                <h3 className="text-xl font-bold text-black mb-3">{feature.title}</h3>
+                <p className="text-gray-700 leading-relaxed">{feature.description}</p>
+              </Card>
+            ))}
+          </div>
+
+          <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-10 md:p-16 text-center shadow-2xl">
+            <Megaphone className="h-16 w-16 text-white mx-auto mb-6 opacity-90" />
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+              Stop Guessing Where Your Next Customer Is Coming From
+            </h3>
+            <p className="text-xl text-white/90 leading-relaxed max-w-4xl mx-auto mb-8">
+              While others focus on 'likes,' we focus on your bottom line. Whether it's capturing high-intent searches on Google or stopping the scroll on Instagram, our ads are engineered to convert. We don't just run campaigns; we build scalable revenue engines.
+            </p>
+            <div className="inline-block bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20">
+              <p className="text-white font-bold text-lg">Ready to see your ROI climb?</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="white" padding="xl">
+        <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-3 mb-6 bg-[#1A3263]/5 px-4 py-2 rounded-full">
@@ -188,7 +430,7 @@ export default function PaidAds() {
         </div>
       </Section>
 
-      <Section background="white" padding="xl">
+      <Section background="gray" padding="xl">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">Success Story</h2>
