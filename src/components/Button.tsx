@@ -20,7 +20,7 @@ export default function Button({
   className = '',
   ...props
 }: ButtonProps) {
-  const baseStyles = 'font-bold rounded-lg transition-all duration-300 ease-in-out inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md hover:shadow-lg';
+  const baseStyles = 'font-medium rounded-lg transition-all duration-300 ease-in-out inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-md hover:shadow-lg';
 
   const variantStyles = {
     primary: 'bg-accent text-white hover:bg-accent-dark focus:ring-accent border-2 border-accent hover:border-accent-dark',
@@ -30,9 +30,9 @@ export default function Button({
   };
 
   const sizeStyles = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    sm: 'px-4 py-2 text-[0.875rem] md:text-[1rem] leading-[1.4]',
+    md: 'px-6 py-3 text-[1rem] md:text-[1.125rem] leading-[1.4]',
+    lg: 'px-8 py-4 text-[1rem] md:text-[1.125rem] leading-[1.4]',
   };
 
   const widthStyle = fullWidth ? 'w-full' : '';

@@ -20,7 +20,19 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Roboto', 'system-ui', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
+      fontSize: {
+        'h1-mobile': ['2.5rem', { lineHeight: '1.15', fontWeight: '800' }],
+        'h1-desktop': ['3.5rem', { lineHeight: '1.1', fontWeight: '800' }],
+        'h2-mobile': ['2rem', { lineHeight: '1.25', fontWeight: '700' }],
+        'h2-desktop': ['2.75rem', { lineHeight: '1.2', fontWeight: '700' }],
+        'h3-mobile': ['1.5rem', { lineHeight: '1.3', fontWeight: '700' }],
+        'h3-desktop': ['2rem', { lineHeight: '1.3', fontWeight: '700' }],
+        'h4-mobile': ['1.125rem', { lineHeight: '1.4', fontWeight: '600' }],
+        'h4-desktop': ['1.5rem', { lineHeight: '1.4', fontWeight: '600' }],
+        'body': ['1rem', { lineHeight: '1.6', fontWeight: '400' }],
+        'button': ['1rem', { lineHeight: '1.4', fontWeight: '500' }],
       },
       transitionDuration: {
         '300': '300ms',
