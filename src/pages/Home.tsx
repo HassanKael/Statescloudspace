@@ -360,11 +360,13 @@ export default function Home() {
             </Button>
           </div>
           <div className="relative">
-            <Card padding="lg" className="bg-gradient-to-br from-primary/5 to-primary/10">
-              <div className="aspect-video bg-white rounded-lg shadow-inner flex items-center justify-center">
-                <Users className="h-24 w-24 text-gray-200" />
-              </div>
-            </Card>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/image.png"
+                alt="AI-powered lead generation automation system"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </Section>
