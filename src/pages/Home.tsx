@@ -623,7 +623,7 @@ export default function Home() {
                 external
                 variant="outline"
                 size="lg"
-                className="bg-transparent text-white border-white hover:bg-white hover:text-primary text-lg px-10 py-5"
+                className="bg-white text-black border-white hover:bg-primary hover:text-white text-lg px-10 py-5"
               >
                 <MessageCircle className="h-5 w-5 mr-2" />
                 Chat on WhatsApp
