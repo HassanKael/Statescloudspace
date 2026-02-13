@@ -78,8 +78,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+254700000000" className="hover:text-white/80 transition-colors duration-300">
-                  +254 700 000 000
+                <a href="tel:+254745296323" className="hover:text-white/80 transition-colors duration-300">
+                  +254 745 296 323
                 </a>
               </li>
               <li>Nairobi, Kenya</li>
