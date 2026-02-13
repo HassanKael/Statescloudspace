@@ -318,7 +318,7 @@ export default function Services() {
           <p className="text-base md:text-lg text-gray-700 mb-10 leading-relaxed">
             Tell us what you want to achieve and we'll map out the best strategy for your business.
           </p>
-          <Button href="/contact" variant="primary" size="lg" className="bg-accent hover:bg-accent-dark text-white text-lg px-10 py-5 animate-pulse-slow-subtle border-accent">
+          <Button href="/contact" variant="primary" size="lg" className="bg-accent hover:bg-accent-dark text-white text-xl px-12 py-6 shadow-2xl hover:shadow-accent/50 transform hover:scale-105 transition-all duration-300 font-bold border-2 border-accent">
             Let's Talk About Your Goals
           </Button>
         </div>
