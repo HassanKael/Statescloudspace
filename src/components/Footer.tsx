@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               {navigation.map((item) => (
                 <li key={item.name}>
@@ -70,7 +70,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
+            <h3 className="font-semibold text-lg mb-4 text-white">Contact</h3>
             <ul className="space-y-2 text-white">
               <li>
                 <a href="mailto:info@statescloudspace.com" className="hover:text-white/80 transition-colors duration-300">
