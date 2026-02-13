@@ -208,7 +208,7 @@ export default function Home() {
               <Button href="/contact" variant="primary" size="lg" className="text-lg px-10 py-5">
                 Get Started
               </Button>
-              <Button href="/contact" variant="outline" size="lg" className="text-lg px-10 py-5 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-black">
+              <Button href="/contact" variant="outline" size="lg" className="text-lg px-10 py-5 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:!text-black">
                 Learn More
               </Button>
             </div>
