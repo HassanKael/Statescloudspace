@@ -78,14 +78,14 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+254 700 000 000',
-      link: 'tel:+254700000000',
+      value: '+254 745 296 323',
+      link: 'tel:+254745296323',
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
       value: 'Chat with us',
-      link: 'https://wa.me/your-number',
+      link: 'https://wa.me/254745296323',
     },
     {
       icon: MapPin,
@@ -228,10 +228,12 @@ export default function Contact() {
                     >
                       <option value="">Select a service</option>
                       <option value="Graphic Design">Graphic Design</option>
-                      <option value="Lead Generation & Funnels">Lead Generation & Funnels</option>
-                      <option value="AI Automation">AI Automation</option>
+                      <option value="SEO">SEO</option>
+                      <option value="Paid Ads">Paid Ads</option>
                       <option value="Social Media Management">Social Media Management</option>
-                      <option value="Paid Ads Management">Paid Ads Management</option>
+                      <option value="AI Automation">AI Automation</option>
+                      <option value="Content Marketing">Content Marketing</option>
+                      <option value="Web Design">Web Design</option>
                       <option value="Not sure / need guidance">Not sure / need guidance</option>
                     </select>
                   </div>
@@ -248,11 +250,11 @@ export default function Contact() {
                       className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#F26419] focus:border-transparent outline-none transition-all bg-white"
                     >
                       <option value="">Select budget range</option>
-                      <option value="Less than $500">Less than $500</option>
-                      <option value="$500 - $1,000">$500 - $1,000</option>
-                      <option value="$1,000 - $2,500">$1,000 - $2,500</option>
-                      <option value="$2,500 - $5,000">$2,500 - $5,000</option>
-                      <option value="$5,000+">$5,000+</option>
+                      <option value="Less than KSH 50,000">Less than KSH 50,000</option>
+                      <option value="KSH 50,000 - KSH 100,000">KSH 50,000 - KSH 100,000</option>
+                      <option value="KSH 100,000 - KSH 250,000">KSH 100,000 - KSH 250,000</option>
+                      <option value="KSH 250,000 - KSH 500,000">KSH 250,000 - KSH 500,000</option>
+                      <option value="KSH 500,000+">KSH 500,000+</option>
                     </select>
                   </div>
                 </div>
@@ -327,7 +329,7 @@ export default function Contact() {
                 Get instant responses to your questions on WhatsApp.
               </p>
               <Button
-                href="https://wa.me/your-number"
+                href="https://wa.me/254745296323"
                 external
                 variant="primary"
                 size="md"
