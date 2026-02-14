@@ -362,7 +362,7 @@ export default function Home() {
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/image.png"
+                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920"
                 alt="AI-powered lead generation automation system"
                 className="w-full h-full object-cover"
               />

@@ -92,9 +92,9 @@ export default function About() {
           <div>
             <Card padding="lg" className="bg-gradient-to-br from-secondary/10 to-primary/10">
               <img
-                src="/professional_digital_marketing_team_(1).png"
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920"
                 alt="Statescloudspace Team"
-                className="w-full h-auto rounded-lg object-contain"
+                className="w-full h-auto rounded-lg object-cover"
               />
             </Card>
           </div>
