@@ -12,29 +12,27 @@ const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY || 'YOUR_GEMINI_API_K
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 const WHATSAPP_NUMBER = '254745296323';
 
-const SYSTEM_PROMPT = `You are a helpful sales bot for States Cloudspace, a digital marketing agency in Nairobi, Kenya. Respond conversationally and promote these services:
+const SYSTEM_PROMPT = `You are a helpful assistant for States Cloudspace, a digital marketing agency in Nairobi, Kenya.
 
-1. Graphic Design - Custom branding, logos, social media graphics
-2. SEO - 200% traffic boost, local SEO for Nairobi businesses, #1 rankings
-3. Paid Ads - Facebook & Google Ads with proven ROI
-4. Social Media Management - Engagement growth, content calendars
-5. AI Automation - Custom prompts, workflows, chatbots
-6. Content Marketing - Viral posts, blog writing, copywriting
-7. Website Design - Modern UI/UX, responsive designs
+IMPORTANT RULES:
+1. Answer the user's EXACT question directly and briefly (2-3 sentences max)
+2. If they ask about services, mention: Graphic Design, SEO, Paid Ads, Social Media, AI Automation, Content Marketing, Website Design
+3. Keep responses under 60 words
+4. Use 1 emoji per response maximum
+5. Always end with: "Want to know more? Ask away!"
+6. Be helpful and friendly, not overly salesy
 
-For queries matching a service, explain benefits briefly, share success stats, and offer a free consultation. After 3-5 replies or keywords like 'start', 'quote', 'now', 'interested', say: "Awesome! Chat live on WhatsApp for your custom plan 👇"
-
-Keep replies under 100 words, use emojis tastefully, and end with a call-to-action. Be energetic and professional.`;
+If user asks multiple questions or shows interest, suggest: "Let's chat on WhatsApp for detailed help!"`;
 
 const FALLBACK_RESPONSES: Record<string, string> = {
-  seo: "Our SEO service ranks you #1 locally in Nairobi! We've helped clients achieve 200% traffic growth. Want a free SEO audit? 📈",
-  'graphic design': "We create stunning custom branding, logos, and social media graphics that make your brand stand out! 🎨 Check out our portfolio!",
-  'paid ads': "Our Facebook & Google Ads deliver proven ROI! We manage your ad spend and optimize for conversions. Ready to scale? 💰",
-  'social media': "We'll grow your social presence with engaging content and strategic management. Let's boost your engagement! 📱",
-  'ai automation': "We build custom AI solutions - chatbots, workflows, and prompts that save you hours daily! Let's automate your business! 🤖",
-  'content marketing': "We create viral content that drives real engagement. Blog posts, social copy, and more! Let's tell your story! ✍️",
-  'website design': "We design beautiful, responsive websites with amazing UI/UX. Your online presence starts here! 💻",
-  default: "Hey! We specialize in digital marketing: Graphic design, SEO, paid ads, social media, AI automation, content, and website design. What interests you? 🚀"
+  seo: "We boost website rankings with proven SEO strategies. Most clients see 200% traffic growth. Want to know more?",
+  'graphic design': "We create custom logos, branding, and social media graphics. Want to see our portfolio?",
+  'paid ads': "We run Facebook & Google Ads with high ROI. Ready to scale your business?",
+  'social media': "We manage your social accounts with engaging content. Want to grow your followers?",
+  'ai automation': "We build custom AI chatbots and workflows to automate your business. Interested?",
+  'content marketing': "We write viral content and blog posts that drive engagement. Need content help?",
+  'website design': "We design modern, responsive websites with great UI/UX. Ready for a new site?",
+  default: "I can help with: Graphic design, SEO, paid ads, social media, AI automation, content, and website design. What do you need?"
 };
 
 export default function Chatbot() {
@@ -57,7 +55,7 @@ export default function Chatbot() {
       if (!hasAutoOpened.current) {
         setIsOpen(true);
         hasAutoOpened.current = true;
-        addBotMessage("Hey! How can I help with your marketing? 🚀 Graphic design, SEO, ads, social, AI automation, content, or website design?");
+        addBotMessage("Hey! How can I help you today? Ask me anything about our digital marketing services!");
       }
     }, 3000);
 
@@ -86,9 +84,9 @@ export default function Chatbot() {
   };
 
   const shouldShowWhatsApp = (userMessage: string, count: number) => {
-    const keywords = ['start', 'quote', 'now', 'interested', 'price', 'cost', 'how much', 'lets go', "let's go"];
+    const keywords = ['start', 'quote', 'now', 'interested', 'price', 'cost', 'how much', 'lets go', "let's go", 'more', 'details', 'help'];
     const hasKeyword = keywords.some(keyword => userMessage.toLowerCase().includes(keyword));
-    return hasKeyword || count >= 5;
+    return hasKeyword || count >= 3;
   };
 
   const getFallbackResponse = (userMessage: string): string => {
@@ -133,10 +131,10 @@ export default function Chatbot() {
             }]
           }],
           generationConfig: {
-            temperature: 0.9,
+            temperature: 0.7,
             topK: 1,
             topP: 1,
-            maxOutputTokens: 200,
+            maxOutputTokens: 100,
           },
         })
       });
@@ -180,7 +178,7 @@ export default function Chatbot() {
         setTimeout(() => {
           setShowWhatsApp(true);
           const service = getServiceFromMessage(inputValue);
-          addBotMessage(`Awesome! Chat live on WhatsApp for your custom plan 👇`);
+          addBotMessage(`Let's chat on WhatsApp for detailed help! 👇`);
         }, 1000);
       }
     }, 1500);
@@ -213,7 +211,7 @@ export default function Chatbot() {
       )}
 
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-full max-w-[400px] h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 animate-slideInUp overflow-hidden border border-gray-200 sm:w-[400px]"
+        <div className="fixed bottom-6 right-6 w-full max-w-[360px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 animate-slideInUp overflow-hidden border border-gray-200 sm:w-[360px]"
           style={{ maxHeight: 'calc(100vh - 48px)' }}
         >
           <div className="bg-accent text-white p-4 flex items-center justify-between rounded-t-2xl">
