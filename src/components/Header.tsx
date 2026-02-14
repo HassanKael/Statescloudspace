@@ -26,15 +26,12 @@ export default function Header() {
     <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
       <nav className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center">
             <img
               src="/LOGO/Logo.png"
               alt="Statescloudspace"
               className="h-10 w-auto"
             />
-            <span className="font-bold text-xl text-primary hidden sm:inline">
-              Statescloudspace
-            </span>
           </Link>
 
           <div className="hidden lg:flex items-center space-x-8">

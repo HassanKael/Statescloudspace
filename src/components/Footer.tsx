@@ -23,15 +23,12 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
+            <div className="flex items-center mb-4">
               <img
                 src="/LOGO/Logo.png"
                 alt="Statescloudspace"
                 className="h-10 w-auto brightness-0 invert"
               />
-              <span className="font-bold text-xl">
-                Statescloudspace
-              </span>
             </div>
             <p className="text-white mb-4 max-w-md">
               Statescloudspace is a digital marketing partner helping businesses design,
