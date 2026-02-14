@@ -28,7 +28,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img
-              src="/LOGO/Logo.png"
+              src="/LOGO/400x100.png"
               alt="Statescloudspace"
               className="h-10 w-auto"
             />
