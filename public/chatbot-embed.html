@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>States Cloudspace Chatbot - Embed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #scs-chatbot-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      z-index: 99999;
+    }
+
+    #scs-chatbot-fab {
+      width: 60px;
+      height: 60px;
+      background: #F26419;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(242, 100, 25, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    #scs-chatbot-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(242, 100, 25, 0.5);
+    }
+
+    #scs-chatbot-fab svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+    }
+
+    #scs-chatbot-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #EF4444;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    #scs-chatbot-window {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 400px;
+      height: 600px;
+      max-height: calc(100vh - 48px);
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+      flex-direction: column;
+      overflow: hidden;
+      animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #scs-chatbot-window.open {
+      display: flex;
+    }
+
+    @media (max-width: 640px) {
+      #scs-chatbot-window {
+        width: calc(100vw - 32px);
+        height: calc(100vh - 48px);
+      }
+    }
+
+    #scs-chatbot-header {
+      background: #F26419;
+      color: white;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    #scs-chatbot-header-content {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #scs-chatbot-avatar {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #scs-chatbot-avatar svg {
+      width: 24px;
+      height: 24px;
+      fill: #F26419;
+    }
+
+    #scs-chatbot-title {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    #scs-chatbot-subtitle {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    #scs-chatbot-close {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    #scs-chatbot-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    #scs-chatbot-close svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    #scs-chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      background: #F9FAFB;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .scs-message {
+      display: flex;
+      animation: messageSlide 0.3s ease-out;
+    }
+
+    @keyframes messageSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scs-message.user {
+      justify-content: flex-end;
+    }
+
+    .scs-message-bubble {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .scs-message.bot .scs-message-bubble {
+      background: white;
+      color: #1F2937;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .scs-message.user .scs-message-bubble {
+      background: #F26419;
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .scs-typing {
+      display: flex;
+      gap: 4px;
+      padding: 12px 14px;
+      background: white;
+      border-radius: 16px;
+      border-bottom-left-radius: 4px;
+      width: fit-content;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .scs-typing-dot {
+      width: 8px;
+      height: 8px;
+      background: #9CA3AF;
+      border-radius: 50%;
+      animation: typingBounce 1.4s infinite ease-in-out;
+    }
+
+    .scs-typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .scs-typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typingBounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+    }
+
+    #scs-whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto;
+      transition: all 0.3s;
+      animation: messageSlide 0.5s ease-out;
+    }
+
+    #scs-whatsapp-btn:hover {
+      background: #20BA5A;
+      transform: scale(1.05);
+    }
+
+    #scs-whatsapp-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    #scs-chatbot-input-area {
+      padding: 16px;
+      background: white;
+      border-top: 1px solid #E5E7EB;
+      display: flex;
+      gap: 8px;
+    }
+
+    #scs-chatbot-input {
+      flex: 1;
+      border: 1px solid #D1D5DB;
+      border-radius: 24px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    #scs-chatbot-input:focus {
+      border-color: #F26419;
+    }
+
+    #scs-chatbot-send {
+      background: #F26419;
+      border: none;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    #scs-chatbot-send:hover:not(:disabled) {
+      background: #D15614;
+    }
+
+    #scs-chatbot-send:disabled {
+      background: #D1D5DB;
+      cursor: not-allowed;
+    }
+
+    #scs-chatbot-send svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="scs-chatbot-container">
+    <div id="scs-chatbot-fab">
+      <svg viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <div id="scs-chatbot-badge">1</div>
+    </div>
+
+    <div id="scs-chatbot-window">
+      <div id="scs-chatbot-header">
+        <div id="scs-chatbot-header-content">
+          <div id="scs-chatbot-avatar">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <div id="scs-chatbot-title">States Cloudspace</div>
+            <div id="scs-chatbot-subtitle">Digital Marketing</div>
+          </div>
+        </div>
+        <button id="scs-chatbot-close">
+          <svg viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="scs-chatbot-messages"></div>
+
+      <div id="scs-chatbot-input-area">
+        <input
+          type="text"
+          id="scs-chatbot-input"
+          placeholder="Type your message..."
+          autocomplete="off"
+        />
+        <button id="scs-chatbot-send" disabled>
+          <svg viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE';
+      const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+      const WHATSAPP_NUMBER = '254745296323';
+
+      const SYSTEM_PROMPT = `You are a helpful sales bot for States Cloudspace, a digital marketing agency in Nairobi, Kenya. Respond conversationally and promote these services:
+
+1. Graphic Design - Custom branding, logos, social media graphics
+2. SEO - 200% traffic boost, local SEO for Nairobi businesses, #1 rankings
+3. Paid Ads - Facebook & Google Ads with proven ROI
+4. Social Media Management - Engagement growth, content calendars
+5. AI Automation - Custom prompts, workflows, chatbots
+6. Content Marketing - Viral posts, blog writing, copywriting
+7. Website Design - Modern UI/UX, responsive designs
+
+For queries matching a service, explain benefits briefly, share success stats, and offer a free consultation. After 3-5 replies or keywords like 'start', 'quote', 'now', 'interested', say: "Awesome! Chat live on WhatsApp for your custom plan 👇"
+
+Keep replies under 100 words, use emojis tastefully, and end with a call-to-action. Be energetic and professional.`;
+
+      const FALLBACK_RESPONSES = {
+        'seo': "Our SEO service ranks you #1 locally in Nairobi! We've helped clients achieve 200% traffic growth. Want a free SEO audit? 📈",
+        'graphic design': "We create stunning custom branding, logos, and social media graphics that make your brand stand out! 🎨 Check out our portfolio!",
+        'paid ads': "Our Facebook & Google Ads deliver proven ROI! We manage your ad spend and optimize for conversions. Ready to scale? 💰",
+        'social media': "We'll grow your social presence with engaging content and strategic management. Let's boost your engagement! 📱",
+        'ai automation': "We build custom AI solutions - chatbots, workflows, and prompts that save you hours daily! Let's automate your business! 🤖",
+        'content marketing': "We create viral content that drives real engagement. Blog posts, social copy, and more! Let's tell your story! ✍️",
+        'website design': "We design beautiful, responsive websites with amazing UI/UX. Your online presence starts here! 💻",
+        'default': "Hey! We specialize in digital marketing: Graphic design, SEO, paid ads, social media, AI automation, content, and website design. What interests you? 🚀"
+      };
+
+      let messages = [];
+      let messageCount = 0;
+      let isOpen = false;
+      let showWhatsApp = false;
+      let hasAutoOpened = false;
+
+      const fab = document.getElementById('scs-chatbot-fab');
+      const chatWindow = document.getElementById('scs-chatbot-window');
+      const closeBtn = document.getElementById('scs-chatbot-close');
+      const messagesContainer = document.getElementById('scs-chatbot-messages');
+      const input = document.getElementById('scs-chatbot-input');
+      const sendBtn = document.getElementById('scs-chatbot-send');
+
+      function loadMessages() {
+        const saved = localStorage.getItem('scs_chatbot_messages');
+        if (saved) {
+          messages = JSON.parse(saved);
+          renderMessages();
+        }
+      }
+
+      function saveMessages() {
+        localStorage.setItem('scs_chatbot_messages', JSON.stringify(messages));
+      }
+
+      function addMessage(text, sender) {
+        messages.push({ text, sender, timestamp: Date.now() });
+        saveMessages();
+        renderMessages();
+      }
+
+      function renderMessages() {
+        messagesContainer.innerHTML = '';
+        messages.forEach(msg => {
+          const div = document.createElement('div');
+          div.className = `scs-message ${msg.sender}`;
+          div.innerHTML = `<div class="scs-message-bubble">${msg.text}</div>`;
+          messagesContainer.appendChild(div);
+        });
+        scrollToBottom();
+      }
+
+      function showTyping() {
+        const typing = document.createElement('div');
+        typing.id = 'scs-typing-indicator';
+        typing.className = 'scs-typing';
+        typing.innerHTML = '<div class="scs-typing-dot"></div><div class="scs-typing-dot"></div><div class="scs-typing-dot"></div>';
+        messagesContainer.appendChild(typing);
+        scrollToBottom();
+      }
+
+      function hideTyping() {
+        const typing = document.getElementById('scs-typing-indicator');
+        if (typing) typing.remove();
+      }
+
+      function scrollToBottom() {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      function getFallbackResponse(userMessage) {
+        const msg = userMessage.toLowerCase();
+        for (const [key, response] of Object.entries(FALLBACK_RESPONSES)) {
+          if (msg.includes(key)) {
+            return response;
+          }
+        }
+        return FALLBACK_RESPONSES.default;
+      }
+
+      function getServiceFromMessage(message) {
+        const msg = message.toLowerCase();
+        if (msg.includes('seo')) return 'SEO';
+        if (msg.includes('graphic') || msg.includes('design') || msg.includes('logo')) return 'Graphic Design';
+        if (msg.includes('ad') || msg.includes('facebook') || msg.includes('google')) return 'Paid Ads';
+        if (msg.includes('social')) return 'Social Media Management';
+        if (msg.includes('ai') || msg.includes('automation')) return 'AI Automation';
+        if (msg.includes('content') || msg.includes('blog')) return 'Content Marketing';
+        if (msg.includes('website') || msg.includes('web')) return 'Website Design';
+        return 'Marketing Services';
+      }
+
+      async function callGeminiAPI(userMessage) {
+        if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
+          return getFallbackResponse(userMessage);
+        }
+
+        try {
+          const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{ text: `${SYSTEM_PROMPT}\n\nUser: ${userMessage}\n\nAssistant:` }]
+              }],
+              generationConfig: {
+                temperature: 0.9,
+                topK: 1,
+                topP: 1,
+                maxOutputTokens: 200,
+              },
+            })
+          });
+
+          if (!response.ok) throw new Error('API request failed');
+
+          const data = await response.json();
+          return data.candidates?.[0]?.content?.parts?.[0]?.text || getFallbackResponse(userMessage);
+        } catch (error) {
+          console.error('Gemini API error:', error);
+          return getFallbackResponse(userMessage);
+        }
+      }
+
+      function shouldShowWhatsApp(userMessage, count) {
+        const keywords = ['start', 'quote', 'now', 'interested', 'price', 'cost', 'how much', 'lets go', "let's go"];
+        const hasKeyword = keywords.some(keyword => userMessage.toLowerCase().includes(keyword));
+        return hasKeyword || count >= 5;
+      }
+
+      function showWhatsAppButton() {
+        if (showWhatsApp) return;
+        showWhatsApp = true;
+
+        const btn = document.createElement('button');
+        btn.id = 'scs-whatsapp-btn';
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Chat on WhatsApp
+        `;
+        btn.onclick = () => {
+          const lastUserMsg = messages.filter(m => m.sender === 'user').pop()?.text || 'I need help with marketing';
+          const service = getServiceFromMessage(lastUserMsg);
+          const message = encodeURIComponent(`Hi from the website! I need help with ${service}`);
+          window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+        };
+        messagesContainer.appendChild(btn);
+        scrollToBottom();
+      }
+
+      async function handleSend() {
+        const text = input.value.trim();
+        if (!text) return;
+
+        addMessage(text, 'user');
+        input.value = '';
+        sendBtn.disabled = true;
+
+        messageCount++;
+
+        showTyping();
+
+        setTimeout(async () => {
+          const response = await callGeminiAPI(text);
+          hideTyping();
+          addMessage(response, 'bot');
+
+          if (shouldShowWhatsApp(text, messageCount)) {
+            setTimeout(() => {
+              addMessage("Awesome! Chat live on WhatsApp for your custom plan 👇", 'bot');
+              showWhatsAppButton();
+            }, 1000);
+          }
+        }, 1500);
+      }
+
+      fab.onclick = () => {
+        isOpen = true;
+        fab.style.display = 'none';
+        chatWindow.classList.add('open');
+      };
+
+      closeBtn.onclick = () => {
+        isOpen = false;
+        chatWindow.classList.remove('open');
+        fab.style.display = 'flex';
+      };
+
+      input.oninput = () => {
+        sendBtn.disabled = !input.value.trim();
+      };
+
+      input.onkeypress = (e) => {
+        if (e.key === 'Enter' && !sendBtn.disabled) {
+          handleSend();
+        }
+      };
+
+      sendBtn.onclick = handleSend;
+
+      loadMessages();
+
+      setTimeout(() => {
+        if (!hasAutoOpened) {
+          hasAutoOpened = true;
+          isOpen = true;
+          fab.style.display = 'none';
+          chatWindow.classList.add('open');
+          addMessage("Hey! How can I help with your marketing? 🚀 Graphic design, SEO, ads, social, AI automation, content, or website design?", 'bot');
+        }
+      }, 3000);
+    })();
+  </script>
+</body>
+</html>

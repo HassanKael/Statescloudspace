@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Chatbot from './components/Chatbot';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import About from './pages/About';
@@ -16,6 +17,7 @@ import SocialMediaManagement from './pages/services/SocialMediaManagement';
 import AIAutomation from './pages/services/AIAutomation';
 import ContentMarketing from './pages/services/ContentMarketing';
 import WebDesign from './pages/services/WebDesign';
+import ChatbotDemo from './pages/ChatbotDemo';
 
 function App() {
   return (
@@ -39,9 +41,11 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/chatbot-demo" element={<ChatbotDemo />} />
           </Routes>
         </main>
         <Footer />
+        <Chatbot />
       </div>
     </Router>
   );
