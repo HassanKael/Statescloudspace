@@ -9,7 +9,6 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
-import ServicesDropdownDemo from './pages/ServicesDropdownDemo';
 import GraphicDesign from './pages/services/GraphicDesign';
 import SEO from './pages/services/SEO';
 import PaidAds from './pages/services/PaidAds';
@@ -17,7 +16,6 @@ import SocialMediaManagement from './pages/services/SocialMediaManagement';
 import AIAutomation from './pages/services/AIAutomation';
 import ContentMarketing from './pages/services/ContentMarketing';
 import WebDesign from './pages/services/WebDesign';
-import ChatbotDemo from './pages/ChatbotDemo';
 
 function App() {
   return (
@@ -29,7 +27,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/services-dropdown" element={<ServicesDropdownDemo />} />
             <Route path="/services/graphic-design" element={<GraphicDesign />} />
             <Route path="/services/seo" element={<SEO />} />
             <Route path="/services/paid-ads" element={<PaidAds />} />
@@ -41,7 +38,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/chatbot-demo" element={<ChatbotDemo />} />
           </Routes>
         </main>
         <Footer />
