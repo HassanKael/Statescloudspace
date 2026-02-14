@@ -10,6 +10,21 @@ function customPublicCopy() {
       const publicDir = 'public';
       const outDir = 'dist';
 
+      function copyRecursive(src: string, dest: string) {
+        if (statSync(src).isDirectory()) {
+          if (!existsSync(dest)) {
+            mkdirSync(dest, { recursive: true });
+          }
+          const files = readdirSync(src);
+          files.forEach(file => {
+            if (file.includes('copy')) return;
+            copyRecursive(join(src, file), join(dest, file));
+          });
+        } else {
+          copyFileSync(src, dest);
+        }
+      }
+
       if (existsSync(publicDir)) {
         const files = readdirSync(publicDir);
         files.forEach(file => {
@@ -18,10 +33,7 @@ function customPublicCopy() {
           try {
             const srcPath = join(publicDir, file);
             const destPath = join(outDir, file);
-
-            if (statSync(srcPath).isFile()) {
-              copyFileSync(srcPath, destPath);
-            }
+            copyRecursive(srcPath, destPath);
           } catch (err) {
             console.warn(`Could not copy ${file}:`, err.message);
           }
