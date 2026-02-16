@@ -267,8 +267,8 @@ export default function PaidAds() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-8 shadow-lg text-white">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+            <div className="bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-2xl p-8 shadow-lg text-white">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
                 <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
@@ -276,9 +276,9 @@ export default function PaidAds() {
               </h3>
               <div className="space-y-6">
                 {googleBenefits.map((benefit, index) => (
-                  <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
                     <h4 className="font-bold text-white mb-2">{benefit.title}</h4>
-                    <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
+                    <p className="text-white/90 text-sm leading-relaxed">{benefit.description}</p>
                   </div>
                 ))}
               </div>
@@ -304,8 +304,8 @@ export default function PaidAds() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-8 shadow-lg text-white order-2 md:order-1">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+            <div className="bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-2xl p-8 shadow-lg text-white order-2 md:order-1">
+              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 text-white">
                 <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg">
                   <CheckCircle className="h-6 w-6 text-white" />
                 </div>
@@ -313,9 +313,9 @@ export default function PaidAds() {
               </h3>
               <div className="space-y-6">
                 {metaBenefits.map((benefit, index) => (
-                  <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+                  <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
                     <h4 className="font-bold text-white mb-2">{benefit.title}</h4>
-                    <p className="text-white/80 text-sm leading-relaxed">{benefit.description}</p>
+                    <p className="text-white/90 text-sm leading-relaxed">{benefit.description}</p>
                   </div>
                 ))}
               </div>
@@ -406,7 +406,7 @@ export default function PaidAds() {
             </div>
 
             <div className="relative">
-              <div className="bg-gradient-to-br from-[#1A3263] to-black rounded-2xl p-8 shadow-2xl">
+              <div className="bg-gradient-to-br from-[#1A3263] to-[#0f1f40] rounded-2xl p-8 shadow-2xl">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="bg-white/10 backdrop-blur-sm p-3 rounded-xl">
                     <TrendingUp className="h-8 w-8 text-white" />
@@ -415,9 +415,9 @@ export default function PaidAds() {
                 </div>
                 <div className="space-y-6">
                   {tiktokTactics.map((tactic, index) => (
-                    <div key={index} className="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10 hover:bg-white/10 transition-all duration-300">
+                    <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/15 transition-all duration-300">
                       <h5 className="text-base font-bold text-white mb-2">{tactic.title}</h5>
-                      <p className="text-sm text-white/80 leading-relaxed">{tactic.description}</p>
+                      <p className="text-sm text-white/90 leading-relaxed">{tactic.description}</p>
                     </div>
                   ))}
                 </div>
