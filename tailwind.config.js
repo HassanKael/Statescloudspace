@@ -37,6 +37,15 @@ export default {
       transitionDuration: {
         '300': '300ms',
       },
+      animation: {
+        'scroll-rtl': 'scroll-rtl 25s linear infinite',
+      },
+      keyframes: {
+        'scroll-rtl': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-33.333%)' },
+        },
+      },
     },
   },
   plugins: [],

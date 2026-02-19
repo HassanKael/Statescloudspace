@@ -389,4 +389,8 @@
   .animation-delay-1500 {
     animation-delay: 1.5s;
   }
+
+  .animate-scroll-rtl:hover {
+    animation-play-state: paused;
+  }
 }

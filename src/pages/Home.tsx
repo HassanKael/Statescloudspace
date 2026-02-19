@@ -16,6 +16,7 @@ import {
 import Section from '../components/Section';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import LogoCarousel from '../components/LogoCarousel';
 import { supabase, BlogPost } from '../lib/supabase';
 
 export default function Home() {
@@ -235,20 +236,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Section background="white" padding="lg">
-        <div className="text-center">
-          <p className="text-lg font-semibold text-gray-600 uppercase tracking-wider mb-8">
-            Trusted by Growing Businesses and Ambitious Founders
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
-            {['Company', 'Brand', 'Business', 'Enterprise'].map((name) => (
-              <div key={name} className="flex items-center justify-center">
-                <div className="text-2xl font-bold text-gray-400">{name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
+      <LogoCarousel />
 
       <Section background="white" padding="xl" id="services">
         <div className="text-center mb-16">
