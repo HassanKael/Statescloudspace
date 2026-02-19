@@ -25,9 +25,9 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center mb-4">
               <img
-                src="/LOGO/400x100.png"
+                src="/LOGO/image copy.png"
                 alt="Statescloudspace"
-                className="h-10 w-auto brightness-0 invert"
+                className="h-12 w-auto brightness-0 invert"
               />
             </div>
             <p className="text-white mb-4 max-w-md">
