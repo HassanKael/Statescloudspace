@@ -38,7 +38,7 @@ export default function Home() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSuccessStorySlide((prev) => (prev + 1) % 4);
+      setSuccessStorySlide((prev) => (prev + 1) % 5);
     }, 5000);
     return () => clearInterval(timer);
   }, []);
@@ -432,6 +432,14 @@ export default function Home() {
                     feedback: 'Stunning visuals transformed our brand; leads poured in from every campaign we launched.',
                     tagline: 'Elevated brand visuals and marketing impact',
                   },
+                  {
+                    name: 'Orient Cleaning Services',
+                    role: 'Cleaning Company',
+                    service: 'Website Design & Online Presence',
+                    image: 'https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=800',
+                    feedback: 'Our new website brought us from invisible to unstoppable—clients find us online every single day!',
+                    tagline: 'Established strong online presence and visibility',
+                  },
                 ].map((story, index) => (
                   <div key={index} className="w-full flex-shrink-0 px-4">
                     <Card
@@ -493,9 +501,9 @@ export default function Home() {
                           {/* Stats/Metrics */}
                           <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
                             {[
-                              { label: 'Revenue Growth', value: index === 0 ? '200%' : index === 1 ? '350%' : index === 2 ? '500%' : '420%' },
-                              { label: 'Time Saved', value: index === 0 ? '15hrs' : index === 1 ? '20hrs' : index === 2 ? '25hrs' : '18hrs' },
-                              { label: 'ROI', value: index === 0 ? '5.2x' : index === 1 ? '6.8x' : index === 2 ? '7.5x' : '6.1x' },
+                              { label: 'Revenue Growth', value: index === 0 ? '200%' : index === 1 ? '350%' : index === 2 ? '500%' : index === 3 ? '420%' : '380%' },
+                              { label: 'Time Saved', value: index === 0 ? '15hrs' : index === 1 ? '20hrs' : index === 2 ? '25hrs' : index === 3 ? '18hrs' : '22hrs' },
+                              { label: 'ROI', value: index === 0 ? '5.2x' : index === 1 ? '6.8x' : index === 2 ? '7.5x' : index === 3 ? '6.1x' : '5.8x' },
                             ].map((stat) => (
                               <div key={stat.label} className="text-center">
                                 <div className="text-2xl font-black text-[#1A3263] mb-1">
@@ -517,14 +525,14 @@ export default function Home() {
 
             {/* Navigation Arrows */}
             <button
-              onClick={() => setSuccessStorySlide((prev) => (prev === 0 ? 3 : prev - 1))}
+              onClick={() => setSuccessStorySlide((prev) => (prev === 0 ? 4 : prev - 1))}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-2xl hover:bg-white transition-all duration-300 hover:scale-110 z-20"
               aria-label="Previous story"
             >
               <ChevronLeft className="h-6 w-6 text-[#1A3263]" />
             </button>
             <button
-              onClick={() => setSuccessStorySlide((prev) => (prev === 3 ? 0 : prev + 1))}
+              onClick={() => setSuccessStorySlide((prev) => (prev === 4 ? 0 : prev + 1))}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-2xl hover:bg-white transition-all duration-300 hover:scale-110 z-20"
               aria-label="Next story"
             >
@@ -533,7 +541,7 @@ export default function Home() {
 
             {/* Navigation Dots */}
             <div className="flex justify-center gap-3 mt-8">
-              {[0, 1, 2, 3].map((index) => (
+              {[0, 1, 2, 3, 4].map((index) => (
                 <button
                   key={index}
                   onClick={() => setSuccessStorySlide(index)}
