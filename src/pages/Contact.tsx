@@ -250,11 +250,10 @@ export default function Contact() {
                       className="w-full px-4 py-3 border border-neutral-100 rounded-lg focus:ring-2 focus:ring-[#F26419] focus:border-transparent outline-none transition-all bg-white"
                     >
                       <option value="">Select budget range</option>
-                      <option value="Less than KSH 50,000">Less than KSH 50,000</option>
-                      <option value="KSH 50,000 - KSH 100,000">KSH 50,000 - KSH 100,000</option>
-                      <option value="KSH 100,000 - KSH 250,000">KSH 100,000 - KSH 250,000</option>
-                      <option value="KSH 250,000 - KSH 500,000">KSH 250,000 - KSH 500,000</option>
-                      <option value="KSH 500,000+">KSH 500,000+</option>
+                      <option value="Less than KSH 5,000">Less than KSH 5,000</option>
+                      <option value="KSH 5,000 - KSH 20,000">KSH 5,000 - KSH 20,000</option>
+                      <option value="KSH 20,000 - KSH 40,000">KSH 20,000 - KSH 40,000</option>
+                      <option value="KSH 40,000 - KSH 70,000">KSH 40,000 - KSH 70,000</option>
                     </select>
                   </div>
                 </div>
