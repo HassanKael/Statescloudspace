@@ -501,9 +501,9 @@ export default function Home() {
                           {/* Stats/Metrics */}
                           <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-gray-200">
                             {[
-                              { label: 'Revenue Growth', value: index === 0 ? '200%' : index === 1 ? '350%' : index === 2 ? '500%' : index === 3 ? '420%' : '380%' },
-                              { label: 'Time Saved', value: index === 0 ? '15hrs' : index === 1 ? '20hrs' : index === 2 ? '25hrs' : index === 3 ? '18hrs' : '22hrs' },
-                              { label: 'ROI', value: index === 0 ? '5.2x' : index === 1 ? '6.8x' : index === 2 ? '7.5x' : index === 3 ? '6.1x' : '5.8x' },
+                              { label: 'Revenue Growth', value: index === 0 ? '95%' : index === 1 ? '78%' : index === 2 ? '125%' : index === 3 ? '88%' : '72%' },
+                              { label: 'Time Saved', value: index === 0 ? '12hrs' : index === 1 ? '8hrs' : index === 2 ? '15hrs' : index === 3 ? '10hrs' : '14hrs' },
+                              { label: 'ROI', value: index === 0 ? '3.2x' : index === 1 ? '2.8x' : index === 2 ? '3.8x' : index === 3 ? '3.1x' : '2.9x' },
                             ].map((stat) => (
                               <div key={stat.label} className="text-center">
                                 <div className="text-2xl font-black text-[#1A3263] mb-1">
