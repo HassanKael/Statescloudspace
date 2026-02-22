@@ -135,9 +135,9 @@ export default function SEO() {
   ];
 
   const stats = [
-    { value: '247%', label: 'Average Traffic Increase', color: 'text-[#1A3263]' },
+    { value: '85%', label: 'Average Traffic Increase', color: 'text-[#1A3263]' },
     { value: '90 Days', label: 'To See Results', color: 'text-[#1A3263]' },
-    { value: '150+', label: 'Keywords Ranked Top 3', color: 'text-[#1A3263]' },
+    { value: '50+', label: 'Keywords Ranked Top 3', color: 'text-[#1A3263]' },
     { value: '98%', label: 'Client Satisfaction', color: 'text-[#1A3263]' }
   ];
 
@@ -147,21 +147,21 @@ export default function SEO() {
       company: 'Kimeu Enterprises',
       role: 'Entrepreneur',
       content: 'Our organic traffic tripled in just four months. Their expertise in both technical SEO and content strategy has been invaluable for growing our business in Nairobi and beyond.',
-      results: { traffic: '+340%', leads: '+180%', revenue: 'KSh 24M' }
+      results: { traffic: '+65%', leads: '+45%', revenue: 'KSh 850K' }
     },
     {
       name: 'Amina Hassan',
       company: 'Hassan Digital Solutions',
       role: 'Digital Marketer',
       content: 'Finally, an SEO agency that delivers what they promise. Our rankings improved across Kenya, qualified leads increased significantly, and the ROI has been exceptional for our clients.',
-      results: { traffic: '+280%', leads: '+220%', revenue: 'KSh 31M' }
+      results: { traffic: '+78%', leads: '+52%', revenue: 'KSh 1.2M' }
     },
     {
       name: 'Esther Wanjiku',
       company: 'Wanjiku Online Store',
       role: 'E-commerce Specialist',
       content: 'The difference was night and day. Within 90 days we were ranking for competitive e-commerce keywords in the Kenyan market that we never thought possible.',
-      results: { traffic: '+195%', leads: '+160%', revenue: 'KSh 18M' }
+      results: { traffic: '+58%', leads: '+38%', revenue: 'KSh 720K' }
     }
   ];
 
