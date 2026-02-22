@@ -29,7 +29,7 @@ export default function AIAutomation() {
       ],
       problem: 'Missing leads after hours, slow response times, and overwhelmed support teams losing potential customers.',
       solution: 'Deploy intelligent AI chatbot that instantly responds, qualifies leads, books appointments, and escalates complex queries to your team.',
-      expectedResult: '87% faster response time, 60% reduction in support costs, and 3x more qualified leads captured outside business hours.',
+      expectedResult: '75% faster response time, 45% reduction in support costs, and 2.2x more qualified leads captured outside business hours.',
       animationType: 'chatbot',
     },
     {
@@ -43,7 +43,7 @@ export default function AIAutomation() {
       ],
       problem: 'Content creation bottleneck draining hours weekly, inconsistent posting schedule, and struggling to maintain SEO rankings.',
       solution: 'Automated content pipeline that generates SEO-optimized blog posts, social media content, and visual assets based on your keywords and brand voice.',
-      expectedResult: '15+ hours saved weekly, 300% increase in content output, and 45% improvement in organic search rankings within 90 days.',
+      expectedResult: '12+ hours saved weekly, 85% increase in content output, and 35% improvement in organic search rankings within 90 days.',
       animationType: 'content',
     },
     {
@@ -57,7 +57,7 @@ export default function AIAutomation() {
       ],
       problem: 'Manual data entry errors, delayed approvals creating cash flow issues, and team buried in repetitive administrative tasks.',
       solution: 'Smart automation system that processes invoices, routes approvals, extracts data, and updates dashboards in real-time with zero human intervention.',
-      expectedResult: '95% reduction in processing errors, 10x faster approval cycles, and $50K+ annual savings on administrative overhead.',
+      expectedResult: '82% reduction in processing errors, 5x faster approval cycles, and KSh 2.5M+ annual savings on administrative overhead.',
       animationType: 'workflow',
     },
   ];

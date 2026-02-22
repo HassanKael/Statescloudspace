@@ -154,9 +154,9 @@ export default function PaidAds() {
     challenge: 'High ad costs with poor conversion rates and unclear attribution',
     solution: 'Complete campaign restructure with audience refinement and conversion tracking setup',
     results: [
-      '340% increase in qualified leads',
-      '62% reduction in cost per acquisition',
-      '5.8x return on ad spend (ROAS)',
+      '68% increase in qualified leads',
+      '42% reduction in cost per acquisition',
+      '3.2x return on ad spend (ROAS)',
     ],
   };
 

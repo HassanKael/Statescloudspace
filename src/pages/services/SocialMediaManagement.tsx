@@ -36,9 +36,9 @@ export default function SocialMediaManagement() {
     challenge: 'Inconsistent posting schedule and low engagement rates across all platforms',
     solution: 'Comprehensive social media strategy with content calendar, engagement protocols, and paid amplification',
     results: [
-      '520% increase in engagement rate',
-      '12,000+ new qualified followers',
-      '95 high-value leads generated directly from social',
+      '85% increase in engagement rate',
+      '2,400+ new qualified followers',
+      '32 high-value leads generated directly from social',
     ],
   };
 

@@ -70,8 +70,8 @@ export default function GraphicDesign() {
   ];
 
   const stats = [
-    { value: '300%', label: 'Engagement Boost', icon: TrendingUp },
-    { value: '250+', label: 'Brands Designed', icon: Award },
+    { value: '75%', label: 'Engagement Boost', icon: TrendingUp },
+    { value: '120+', label: 'Brands Designed', icon: Award },
     { value: '98%', label: 'Client Satisfaction', icon: Sparkles },
   ];
 
@@ -82,9 +82,9 @@ export default function GraphicDesign() {
       challenge: 'Outdated brand identity limiting growth and market positioning',
       solution: 'Complete rebrand with modern design system and marketing materials',
       results: [
-        '250% increase in website engagement',
-        '180% boost in social media followers',
-        '3x improvement in lead quality',
+        '62% increase in website engagement',
+        '48% boost in social media followers',
+        '2.1x improvement in lead quality',
       ],
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
@@ -94,9 +94,9 @@ export default function GraphicDesign() {
       challenge: 'Generic branding failed to convey trust and expertise',
       solution: 'Premium brand identity with professional marketing suite',
       results: [
-        '400% increase in brand recall',
-        '90% improvement in conversion rates',
-        '5x growth in partnership inquiries',
+        '78% increase in brand recall',
+        '55% improvement in conversion rates',
+        '2.8x growth in partnership inquiries',
       ],
       image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
     },

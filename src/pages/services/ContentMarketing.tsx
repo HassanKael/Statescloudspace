@@ -36,9 +36,9 @@ export default function ContentMarketing() {
     challenge: 'No content strategy, low website traffic, and minimal inbound lead generation',
     solution: 'Developed comprehensive content hub with blog, case studies, whitepapers, and video series',
     results: [
-      '680% increase in organic website traffic',
-      '145 qualified leads from content downloads',
-      '47 speaking opportunities from thought leadership',
+      '92% increase in organic website traffic',
+      '48 qualified leads from content downloads',
+      '12 speaking opportunities from thought leadership',
     ],
   };
 
