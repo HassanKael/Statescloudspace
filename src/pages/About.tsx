@@ -482,6 +482,8 @@ export default function About() {
       </Section>
 
       <Section background="white" padding="xl">
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black">
             Let's Talk About Your Next Stage of Growth
           </h2>
           <p className="text-lg text-neutral-700 mb-8">
