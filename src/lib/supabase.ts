@@ -9,20 +9,6 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export type BlogPost = {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  author: string;
-  featured_image?: string;
-  published: boolean;
-  created_at: string;
-  updated_at: string;
-};
-
 export type ContactSubmission = {
   name: string;
   business_name?: string;

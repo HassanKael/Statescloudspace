@@ -17,17 +17,11 @@ import Section from '../components/Section';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import LogoCarousel from '../components/LogoCarousel';
-import { supabase, BlogPost } from '../lib/supabase';
 
 export default function Home() {
-  const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [successStorySlide, setSuccessStorySlide] = useState(0);
   const [expandedStory, setExpandedStory] = useState<number | null>(null);
-
-  useEffect(() => {
-    fetchLatestPosts();
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -42,19 +36,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const fetchLatestPosts = async () => {
-    const { data } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('published', true)
-      .order('created_at', { ascending: false })
-      .limit(3);
-
-    if (data) {
-      setLatestPosts(data);
-    }
-  };
 
   const services = [
     {
@@ -565,44 +546,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {latestPosts.length > 0 && (
-        <Section background="white" padding="xl">
-          <div className="text-center mb-16">
-            <h2>Digital Growth Insights</h2>
-            <p className="text-lg max-w-2xl mx-auto mt-4">
-              Simple, practical tips on how to get more leads and sales online.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {latestPosts.map((post) => (
-              <Card key={post.id} hover padding="lg">
-                <div className="mb-4">
-                  <span className="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">
-                    {post.category}
-                  </span>
-                </div>
-                <h3 className="subtopic mb-3 line-clamp-2">{post.title}</h3>
-                <p className="mb-4 line-clamp-3">{post.excerpt}</p>
-                <Link
-                  to={`/blog/${post.slug}`}
-                  className="text-primary hover:text-primary-dark font-medium inline-flex items-center group transition-all duration-300"
-                >
-                  Read more
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button href="/blog" variant="outline" size="lg">
-              View All Articles
-            </Button>
-          </div>
-        </Section>
-      )}
 
       <Section background="white" padding="xl">
         <div className="relative bg-gradient-to-r from-primary via-primary to-primary/90 rounded-3xl p-12 md:p-16 text-center max-w-5xl mx-auto overflow-hidden">
