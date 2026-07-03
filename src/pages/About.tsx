@@ -232,20 +232,22 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
             <div className="space-y-4 text-lg text-neutral-700">
               <p>
-                Statescloudspace was born from a simple observation: too many businesses
-                were spending money on digital marketing but seeing little return. They had
-                pretty graphics, active social accounts, and even some traffic — but the
-                sales weren't following.
+                States Cloud Space was born from a simple observation: too many businesses were investing in digital marketing but seeing little return. They had attractive branding, active social media accounts, and website traffic, yet the sales weren't following.
               </p>
               <p>
-                We knew the problem wasn't with digital marketing itself. It was with how it
-                was being approached. Businesses needed a partner who understood that every
-                post, every ad, and every automation should connect directly to revenue.
+                We realized the problem wasn't digital marketing itself. The problem was strategy. Too often, businesses focused on vanity metrics instead of building systems that drive measurable growth.
               </p>
               <p>
-                Today, we help ambitious businesses build marketing systems that actually
-                work — systems that generate qualified leads, nurture them automatically,
-                and turn them into paying customers. That's the Statescloudspace difference.
+                That's why we took a different approach.
+              </p>
+              <p>
+                At States Cloud Space, we believe every website, campaign, automation, and piece of content should serve one purpose: helping businesses attract the right customers and generate sustainable revenue.
+              </p>
+              <p>
+                Today, we partner with ambitious businesses to build complete digital growth systems — combining web development, branding, SEO, AI automation, lead generation, and digital marketing into strategies that deliver real business results.
+              </p>
+              <p>
+                We're not just another digital agency. We're a growth partner committed to helping businesses scale smarter, work more efficiently, and turn opportunities into lasting success.
               </p>
             </div>
           </div>
